@@ -1,0 +1,50 @@
+[
+    {
+        "name": "layanan",
+        "roles": [
+            "superadmin",
+            "admin"
+        ],
+        "group": "layanan"
+    },
+    {
+        "name": "layanan Tambah",
+        "roles": [
+            "superadmin",
+            "admin"
+        ],
+        "group": "layanan"
+    },
+    {
+        "name": "layanan Impor Excel",
+        "roles": [
+            "superadmin",
+            "admin"
+        ],
+        "group": "layanan"
+    },
+    {
+        "name": "layanan Ubah",
+        "roles": [
+            "superadmin",
+            "admin"
+        ],
+        "group": "layanan"
+    },
+    {
+        "name": "layanan Hapus",
+        "roles": [
+            "superadmin",
+            "admin"
+        ],
+        "group": "layanan"
+    },
+    {
+        "name": "layanan Ekspor",
+        "roles": [
+            "superadmin",
+            "admin"
+        ],
+        "group": "layanan"
+    }
+]

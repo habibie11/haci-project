@@ -1,0 +1,12 @@
+{
+    "group_name": "Navigasi",
+    "menus": [
+        {
+            "menu_name": "layanan",
+            "route_name": "layanans.index",
+            "icon": "users",
+            "permission": "layanan",
+            "is_active_if_url_includes": "layanans*"
+        }
+    ]
+}
