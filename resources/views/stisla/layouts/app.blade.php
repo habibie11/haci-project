@@ -7,7 +7,6 @@
   @include('stisla.includes.others.css')
 
 </head>
-{{-- {{ dd($_stisla_sidebar_mini) }} --}}
 
 <body class="{{ $_stisla_sidebar_mini == 1 ? 'sidebar-mini' : '' }}">
   <div id="app">

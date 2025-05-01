@@ -2,14 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CrudController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestingController;
-use App\Http\Controllers\YoutubeController;
 use Illuminate\Support\Facades\Route;
 
-# DASHBOARD
-Route::get('/', [DashboardController::class, 'home'])->name('home');
+# HALAMAN DEPAN
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 # AUTH
 Route::get('auth/login', [AuthController::class, 'loginForm'])->name('login');
@@ -34,9 +32,6 @@ Route::get('auth/social/{provider}/callback', [AuthController::class, 'socialCal
 # CRUD GENERATOR
 Route::get('crud-generator', [CrudController::class, 'index'])->middleware('auth');
 Route::post('crud-generator', [CrudController::class, 'generateJson'])->middleware('auth');
-
-# YOUTUBE
-Route::get('youtube/view-sync', [YoutubeController::class, 'viewSync'])->name('youtube.view-sync')->middleware('auth');
 
 # TEST
 Route::get('test', [TestingController::class, 'test'])->name('test');

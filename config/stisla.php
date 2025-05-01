@@ -72,7 +72,6 @@ return [
                 ]
             ]
         ],
-
         [
             'group_name' => 'Menu Lainnya',
             'menus' => [

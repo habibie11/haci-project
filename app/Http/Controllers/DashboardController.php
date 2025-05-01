@@ -42,6 +42,7 @@ class DashboardController extends StislaController
         $widgets = [];
         $user = auth()->user();
 
+        // setting data widget disini
         if ($user->can('Contoh CRUD'))
             $widgets[] = (object)[
                 'title' => 'Contoh CRUD',
@@ -169,7 +170,7 @@ class DashboardController extends StislaController
     }
 
     /**
-     * home page
+     * home page / halaman depan
      *
      * @return Response
      */
