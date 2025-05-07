@@ -14,7 +14,7 @@ class Setting extends Model
      *
      * @var array
      */
-    protected $fillable = ['key', 'value'];
+    protected $fillable = ['key', 'value', 'type'];
 
     /**
      * Indicates if the model should be timestamped.

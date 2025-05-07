@@ -69,7 +69,7 @@
 
             <div class="d-flex flex-column align-items-center align-items-lg-start">
                 <div>
-                    © Copyright <strong><span>MyWebsite</span></strong>. All Rights Reserved
+                    {{ $since }} © Copyright <strong><span>{{ $companyName }}</span></strong>. All Rights Reserved
                 </div>
                 <div class="credits">
                     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>

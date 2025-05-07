@@ -7,13 +7,13 @@
   <div class="container">
     <div class="row gy-4">
       <div class="col-lg-7 order-2 order-lg-1 d-flex flex-column justify-content-center">
-        <h1>Welcome to Our Website</h1>
-        <p>We are team of talented designers making websites with Bootstrap</p>
+        <h1>Selamat Datang di {{ $appName }}</h1>
+        <p>{{ $dataSetting->welcome }}</p>
         <div class="d-flex">
           <a href="#about" class="btn-get-started">Get Started</a>
-          <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
+          {{-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
             class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch
-              Video</span></a>
+              Video</span></a> --}}
         </div>
       </div>
       <div class="col-lg-5 order-1 order-lg-2 hero-img">
@@ -27,31 +27,27 @@
 <!-- About Section -->
 <section id="about" class="about section">
 
-  <div class="container" data-aos="fade-up">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Visi & Misi</h2>
     <div class="row gx-0">
-
-      <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-        <img src="{{ asset('home/img/about.jpg') }}" class="img-fluid" alt="">
+      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="content visi" style="background-color: unset;">
+          <h3>
+            <i class="bi bi-bookmark-check-fill"></i>
+            VISI
+          </h3>
+          <p>
+            {{ $dataSetting->visi }}
+          </p>
+        </div>
       </div>
 
       <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
         <div class="content">
-          <h3>Who We Are</h3>
-          <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat
-            corrupti
-            reprehenderit.</h2>
+          <h3><i class="bi bi-send"></i> MISI</h3>
           <p>
-            Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
-            consequatur
-            itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est
-            corrupti.
+            {{ $dataSetting->misi }}
           </p>
-          <div class="text-center text-lg-start">
-            <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-              <span>Read More</span>
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
         </div>
       </div>
 
@@ -60,212 +56,31 @@
 
 </section><!-- /About Section -->
 
-<!-- Features Section -->
-<section id="features" class="features section">
-
-  <div class="container">
-
-    <ul class="nav nav-tabs row  g-2 d-flex" data-aos="fade-up" data-aos-delay="100">
-
-      <li class="nav-item col-3">
-        <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-          <h4>Modisit</h4>
-        </a>
-      </li><!-- End tab nav item -->
-
-      <li class="nav-item col-3">
-        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-          <h4>Praesenti</h4>
-        </a><!-- End tab nav item -->
-
-      </li>
-      <li class="nav-item col-3">
-        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-          <h4>Explica</h4>
-        </a>
-      </li><!-- End tab nav item -->
-
-      <li class="nav-item col-3">
-        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4">
-          <h4>Nostrum</h4>
-        </a>
-      </li><!-- End tab nav item -->
-
-    </ul>
-
-    <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
-      <div class="tab-pane fade active show" id="features-tab-1">
-        <div class="row">
-          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-            <h3>Voluptatem dignissimos provident</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et
-              dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                  commodo
-                  consequat.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
-                  voluptate
-                  velit.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda
-                  mastiro dolore eu
-                  fugiat nulla pariatur.</span></li>
-            </ul>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <img src="{{ asset('home/img/working-1.jpg') }}" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div><!-- End tab content item -->
-
-      <div class="tab-pane fade" id="features-tab-2">
-        <div class="row">
-          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-            <h3>Neque exercitationem debitis</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et
-              dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                  commodo
-                  consequat.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
-                  voluptate
-                  velit.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores
-                  dolores quos qui
-                  a. Ipsum neque dolor voluptate nisi sed.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda
-                  mastiro dolore eu
-                  fugiat nulla pariatur.</span></li>
-            </ul>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <img src="{{ asset('home/img/working-2.jpg') }}" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div><!-- End tab content item -->
-
-      <div class="tab-pane fade" id="features-tab-3">
-        <div class="row">
-          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-            <h3>Voluptatibus commodi accusamu</h3>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                  commodo
-                  consequat.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
-                  voluptate
-                  velit.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores
-                  dolores quos qui
-                  a. Ipsum neque dolor voluptate nisi sed.</span></li>
-            </ul>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et
-              dolore
-              magna aliqua.
-            </p>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <img src="assets/img/working-3.jpg" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div><!-- End tab content item -->
-
-      <div class="tab-pane fade" id="features-tab-4">
-        <div class="row">
-          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-            <h3>Omnis fugiat ea explicabo sunt</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et
-              dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                  commodo
-                  consequat.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
-                  voluptate
-                  velit.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda
-                  mastiro dolore eu
-                  fugiat nulla pariatur.</span></li>
-            </ul>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <img src="assets/img/working-4.jpg" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div><!-- End tab content item -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Features Section -->
-
 <!-- Services Section -->
-<section id="services" class="services section">
+<section id="izin-perusahaan" class="services section">
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>Services</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    <h2>Izin Perusahaan</h2>
+    <p>{{ $dataSetting->desc_izin_perusahaan }}</p>
   </div><!-- End Section Title -->
 
   <div class="container">
 
     <div class="row gy-4">
 
+      @forelse ($izinPerusahaan as $item)
       <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
         <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-activity icon"></i></div>
-          <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-          <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+          <div class="icon"><img src="{{ $item->logo }}" alt=""></div>
+          {{-- <div class="icon"><i class="bi bi-activity icon"></i></div> --}}
+          <h4>{{ $item->nama }}</h4>
+          <p>{{ $item->nomor }}</p>
         </div>
-      </div><!-- End Service Item -->
+      </div>
+      @empty
 
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-          <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-        </div>
-      </div><!-- End Service Item -->
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-          <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-        </div>
-      </div><!-- End Service Item -->
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-          <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-        </div>
-      </div><!-- End Service Item -->
+      @endforelse
 
     </div>
 
@@ -274,7 +89,7 @@
 </section><!-- /Services Section -->
 
 <!-- Portfolio Section -->
-<section id="portfolio" class="portfolio section">
+{{-- <section id="portfolio" class="portfolio section">
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
@@ -470,41 +285,79 @@
 
   </div>
 
-</section><!-- /Portfolio Section -->
+</section> --}}
+<!-- /Portfolio Section -->
 
 <!-- Call To Action Section -->
 <section id="call-to-action" class="call-to-action section light-background">
 
-  <img src="assets/img/cta-bg.jpg" alt="">
+  <img src="{{ asset('home/img/cta-bg.jpg')}}" alt="">
 
   <div class="container">
 
     <div class="row" data-aos="zoom-in" data-aos-delay="100">
       <div class="col-xl-9 text-center text-xl-start">
-        <h3>Call To Action</h3>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-          anim id est
-          laborum.</p>
+        <h3>Customer Service</h3>
+        <h4>{{ $dataSetting->desc_customer_service }}</h4>
       </div>
       <div class="col-xl-3 cta-btn-container text-center">
-        <a class="cta-btn align-middle" href="#">Call To Action</a>
+        <a class="cta-btn align-middle"
+          href="https://wa.me/{{ $dataSetting->company_phone }}?text=Halo%20saya%20tertarik%20dengan%20produk%20Anda"><i
+            class="bi bi-whatsapp"></i> {{ $dataSetting->company_phone }}</a>
       </div>
     </div>
 
   </div>
 
-</section><!-- /Call To Action Section -->
+</section>
+<!-- /Call To Action Section -->
+
+<!-- About Section -->
+<section id="special-offer" class="about section">
+
+  <div class="container" data-aos="fade-up">
+    <div class="row gx-0">
+
+      <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+        <img src="{{ asset('home/img/family.png') }}" class="img-fluid" alt="">
+      </div>
+
+      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="content">
+          <h3>PENAWARAN SPESIAL !</h3>
+          <h2>{{ $dataSetting->title_special_offer }}</h2>
+          <p>
+            {{ $dataSetting->desc_special_offer }}
+          </p>
+          <h4><sup>Rp</sup><strong>{{ $specialOffer->harga }}</strong><span> / bulan</span></h4>
+          <div class="text-center text-lg-start">
+            @php
+            $pesanWa = "Halo, saya sedang melihat produk di website Anda dan tertarik dengan produk ini:\n\n
+            $specialOffer->nama \n\n. Saya ingin menanyakan ketersediaan dan detail lebih lanjut. Terima kasih!";
+            @endphp
+            <a target="_blank" href="https://wa.me/{{ $dataSetting->company_phone }}?text={{ $pesanWa }}"
+              class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+              <span>PESAN SEKARANG</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section><!-- /About Section -->
+
 
 <!-- Testimonials Section -->
-<section id="testimonials" class="testimonials section">
+<section id="partners" class="testimonials section">
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>Testimonials</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-  </div><!-- End Section Title -->
+    <h2>Partner Kami</h2>
+  </div>
+  <!-- End Section Title -->
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -512,110 +365,41 @@
       data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
       <script type="application/json" class="swiper-config">
         {
-    "loop": true,
-    "speed": 600,
-    "autoplay": {
-      "delay": 5000
-    },
-    "slidesPerView": "auto",
-    "pagination": {
-      "el": ".swiper-pagination",
-      "type": "bullets",
-      "clickable": true
-    },
-    "breakpoints": {
-      "320": {
-        "slidesPerView": 1,
-        "spaceBetween": 40
-      },
-      "1200": {
-        "slidesPerView": 3,
-        "spaceBetween": 20
-      }
-    }
-  }
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 1,
+              "spaceBetween": 40
+            },
+            "1200": {
+              "slidesPerView": 3,
+              "spaceBetween": 20
+            }
+          }
+        }
       </script>
+
       <div class="swiper-wrapper">
 
+        @forelse ($partners as $item)
         <div class="swiper-slide">
-          <div class="testimonial-item" "="">
-  <p>
-    <i class=" bi bi-quote quote-icon-left"></i>
-            <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-              rhoncus.
-              Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at
-              semper.</span>
-            <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-            <h3>Saul Goodman</h3>
-            <h4>Ceo &amp; Founder</h4>
+          <div class="slide-item">
+            <img width="200" height="200" src="{{ $item->image }}" class="testimonial-img" alt="{{ $item->name }}">
           </div>
-        </div><!-- End testimonial item -->
+        </div>
+        @empty
 
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum
-                quid malis quorum
-                velit fore eram velit sunt aliqua noster fugiat irure amet legam anim
-                culpa.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-            <h3>Sara Wilsson</h3>
-            <h4>Designer</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla
-                quem veniam duis
-                minim tempor labore quem eram duis noster aute amet eram fore quis sint
-                minim.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-            <h3>Jena Karlis</h3>
-            <h4>Store Owner</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
-                fugiat dolor enim
-                duis veniam ipsum anim magna sunt elit fore quem dolore labore illum
-                veniam.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-            <h3>Matt Brandon</h3>
-            <h4>Freelancer</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                noster veniam sunt
-                culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum
-                quid.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-            <h3>John Larson</h3>
-            <h4>Entrepreneur</h4>
-          </div>
-        </div><!-- End testimonial item -->
+        @endforelse
 
       </div>
       <div class="swiper-pagination"></div>
@@ -623,10 +407,12 @@
 
   </div>
 
-</section><!-- /Testimonials Section -->
+</section>
+
+<!-- /Testimonials Section -->
 
 <!-- Team Section -->
-<section id="team" class="team section light-background">
+{{-- <section id="team" class="team section light-background">
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
@@ -690,75 +476,62 @@
 
   </div>
 
-</section><!-- /Team Section -->
+</section> --}}
+<!-- /Team Section -->
 
 <!-- Pricing Section -->
-<section id="pricing" class="pricing section">
+<section id="pricings" class="pricing section">
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>Pricing</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-  </div><!-- End Section Title -->
+    <h2>Produk</h2>
+    <p>{{ $dataSetting->desc_pricing }}</p>
+  </div>
+  <!-- End Section Title -->
 
-  <div class="container">
-
+  @foreach ($kategoriProduk['kategori'] as $key => $item)
+  @if ($pricing->where('kategori', $key)->isNotEmpty())
+  <div class="kategori-produk text-center" data-aos="fade-up">
+    <h3>{{ $item }}</h3>
+  </div>
+  <div class="container mb-5">
     <div class="row g-4 g-lg-0">
 
-      <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="pricing-item">
-          <h3>Free Plan</h3>
-          <h4><sup>$</sup>0<span> / month</span></h4>
-          <ul>
-            <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-            <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-            <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-            <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-            <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span>
-            </li>
+      @foreach ($pricing->where('kategori', $key) as $produk)
+      <div class="col-lg-4 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+        <div class="pricing-item text-center">
+          <img class="rounded mx-auto d-block" width="80" height="80"
+            src="{{ $produk->logo ?? asset('assets/images/logo.png') }}" alt="">
+          <h3 class="mt-3">{{ $produk->nama }}</h3>
+          <h4><sup>Rp</sup>{{ $produk->harga }}<span> / bulan</span></h4>
+          <p>Kecepatan Internet : {{ $produk->kecepatan }}</p>
+          <ul class="list-unstyled">
+            @foreach ($produk->benefits_formatted as $bf)
+            <li><i class="bi bi-check"></i> <span>{{ $bf }}</span></li>
+            @endforeach
           </ul>
-          <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+          <div class="text-center"><a href="#" class="buy-btn">Pesan Sekarang</a></div>
         </div>
-      </div><!-- End Pricing Item -->
-
-      <div class="col-lg-4 featured" data-aos="zoom-in" data-aos-delay="200">
-        <div class="pricing-item">
-          <h3>Business Plan</h3>
-          <h4><sup>$</sup>29<span> / month</span></h4>
-          <ul>
-            <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-            <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-            <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-            <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-            <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-          </ul>
-          <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-        </div>
-      </div><!-- End Pricing Item -->
-
-      <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="pricing-item">
-          <h3>Developer Plan</h3>
-          <h4><sup>$</sup>49<span> / month</span></h4>
-          <ul>
-            <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-            <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-            <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-            <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-            <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-          </ul>
-          <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-        </div>
-      </div><!-- End Pricing Item -->
+      </div>
+      @endforeach
 
     </div>
-
+  </div>
+  @endif
+  @endforeach
+  <div class="text-center" data-aos="fade-up" style="font-size: small;">
+    <strong>Free Registrasi S&amp;K Berlaku</strong>
+    <p>
+      <italic>Disclaimer: Dilarang keras memperjualbelikan kembali produk ini. Perangkat yang terdeteksi
+        membagikan layanan ini akan diblokir.</italic>
+    </p>
   </div>
 
-</section><!-- /Pricing Section -->
+</section>
+<!-- /Pricing Section -->
 
 <!-- Faq Section -->
-<section id="faq" class="faq section light-background">
+{{-- <section id="faq" class="faq section light-background">
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
@@ -850,7 +623,8 @@
 
   </div>
 
-</section><!-- /Faq Section -->
+</section> --}}
+<!-- /Faq Section -->
 
 <!-- Contact Section -->
 <section id="contact" class="contact section">
@@ -865,7 +639,7 @@
 
     <div class="row gy-4">
 
-      <div class="col-lg-6">
+      <div class="col-lg-12">
 
         <div class="row gy-4">
           <div class="col-md-6">
@@ -907,38 +681,6 @@
         </div>
 
       </div>
-
-      <div class="col-lg-6">
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-            </div>
-
-            <div class="col-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
-
-            <div class="col-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
-
-            <div class="col-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
-              <button type="submit">Send Message</button>
-            </div>
-
-          </div>
-        </form>
-      </div><!-- End Contact Form -->
 
     </div>
 

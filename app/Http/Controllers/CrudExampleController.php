@@ -32,9 +32,9 @@ class CrudExampleController extends StislaController
     {
         parent::__construct();
 
-        $this->icon                  = 'fa fa-atom';
+        $this->icon = 'fa fa-atom';
         $this->crudExampleRepository = new CrudExampleRepository;
-        $this->viewFolder            = 'crud-examples';
+        $this->viewFolder = 'crud-examples';
 
         $this->middleware('can:Contoh CRUD');
         $this->middleware('can:Contoh CRUD Tambah')->only(['create', 'store']);
@@ -52,8 +52,8 @@ class CrudExampleController extends StislaController
      */
     protected function getIndexData()
     {
-        $isYajra     = Route::is('crud-examples.index-yajra');
-        $isAjax      = Route::is('crud-examples.index-ajax');
+        $isYajra = Route::is('crud-examples.index-yajra');
+        $isAjax = Route::is('crud-examples.index-ajax');
         $isAjaxYajra = Route::is('crud-examples.index-ajax-yajra');
         if ($isYajra || $isAjaxYajra) {
             $data = collect([]);
@@ -63,10 +63,10 @@ class CrudExampleController extends StislaController
 
         $defaultData = $this->getDefaultDataIndex(__('Contoh CRUD'), 'Contoh CRUD', 'crud-examples');
         return array_merge($defaultData, [
-            'data'         => $data,
-            'isYajra'      => $isYajra,
-            'isAjax'       => $isAjax,
-            'isAjaxYajra'  => $isAjaxYajra,
+            'data' => $data,
+            'isYajra' => $isYajra,
+            'isAjax' => $isAjax,
+            'isAjaxYajra' => $isAjaxYajra,
             'yajraColumns' => $this->crudExampleRepository->getYajraColumns(),
         ]);
     }
@@ -120,13 +120,13 @@ class CrudExampleController extends StislaController
      */
     private function getDetailData(CrudExample $crudExample, bool $isDetail = false)
     {
-        $title       = __('Contoh CRUD');
+        $title = __('Contoh CRUD');
         $defaultData = $this->getDefaultDataDetail($title, 'crud-examples', $crudExample, $isDetail);
         return array_merge($defaultData, [
-            'selectOptions'   => get_options(10),
-            'radioOptions'    => get_options(4),
+            'selectOptions' => get_options(10),
+            'radioOptions' => get_options(4),
             'checkboxOptions' => get_options(5),
-            'fullTitle'       => $isDetail ? __('Detail Contoh CRUD') : __('Ubah Contoh CRUD'),
+            'fullTitle' => $isDetail ? __('Detail Contoh CRUD') : __('Ubah Contoh CRUD'),
         ]);
     }
 
@@ -137,14 +137,14 @@ class CrudExampleController extends StislaController
      */
     protected function getExportData(): array
     {
-        $times    = date('Y-m-d_H-i-s');
+        $times = date('Y-m-d_H-i-s');
         $filename = $times . '_crud_examples';
-        $data     = [
-            'isExport'   => true,
-            'pdf_name'   => $filename . '.pdf',
+        $data = [
+            'isExport' => true,
+            'pdf_name' => $filename . '.pdf',
             'excel_name' => $filename . '.xlsx',
-            'csv_name'   => $filename . '.csv',
-            'json_name'  => $filename . '.json',
+            'csv_name' => $filename . '.csv',
+            'json_name' => $filename . '.json',
         ];
         return array_merge($this->getIndexData(), $data);
     }
@@ -158,11 +158,10 @@ class CrudExampleController extends StislaController
     public function index(Request $request)
     {
         $data = $this->getIndexData();
-
         if ($request->ajax()) {
             return response()->json([
                 'success' => true,
-                'data'    => view('stisla.crud-examples.table', $data)->render(),
+                'data' => view('stisla.crud-examples.table', $data)->render(),
             ]);
         }
 
@@ -188,14 +187,14 @@ class CrudExampleController extends StislaController
      */
     public function create(Request $request)
     {
-        $title      = __('Contoh CRUD');
-        $fullTitle  = __('Tambah Contoh CRUD');
-        $data       = $this->getDefaultDataCreate($title, 'crud-examples');
-        $data       = array_merge($data, [
-            'selectOptions'   => get_options(10),
-            'radioOptions'    => get_options(4),
+        $title = __('Contoh CRUD');
+        $fullTitle = __('Tambah Contoh CRUD');
+        $data = $this->getDefaultDataCreate($title, 'crud-examples');
+        $data = array_merge($data, [
+            'selectOptions' => get_options(10),
+            'radioOptions' => get_options(4),
             'checkboxOptions' => get_options(5),
-            'fullTitle'       => $fullTitle,
+            'fullTitle' => $fullTitle,
         ]);
         if ($request->ajax()) {
             return view('stisla.crud-examples.only-form', $data);
@@ -211,7 +210,7 @@ class CrudExampleController extends StislaController
      */
     public function store(CrudExampleRequest $request)
     {
-        $data   = $this->getStoreData($request);
+        $data = $this->getStoreData($request);
         $result = $this->crudExampleRepository->create($data);
         logCreate("Contoh CRUD", $result);
         $successMessage = successMessageCreate("Contoh CRUD");
@@ -253,7 +252,7 @@ class CrudExampleController extends StislaController
      */
     public function update(CrudExampleRequest $request, CrudExample $crudExample)
     {
-        $data    = $this->getStoreData($request);
+        $data = $this->getStoreData($request);
         $newData = $this->crudExampleRepository->update($data, $crudExample->id);
         logUpdate("Contoh CRUD", $crudExample, $newData);
         $successMessage = successMessageUpdate("Contoh CRUD");
@@ -338,7 +337,7 @@ class CrudExampleController extends StislaController
     public function exportJson()
     {
         $filename = date('YmdHis') . '_contoh_crud.json';
-        $data     = $this->crudExampleRepository->getLatest();
+        $data = $this->crudExampleRepository->getLatest();
 
         return $this->fileService->downloadJson($data, $filename);
     }
@@ -350,7 +349,7 @@ class CrudExampleController extends StislaController
      */
     public function exportExcel()
     {
-        $data  = $this->getExportData();
+        $data = $this->getExportData();
         return $this->fileService->downloadExcelGeneral('stisla.crud-examples.table', $data, $data['excel_name']);
     }
 
@@ -361,7 +360,7 @@ class CrudExampleController extends StislaController
      */
     public function exportCsv()
     {
-        $data  = $this->getExportData();
+        $data = $this->getExportData();
         return $this->fileService->downloadCsvGeneral('stisla.crud-examples.table', $data, $data['csv_name']);
     }
 
@@ -373,9 +372,9 @@ class CrudExampleController extends StislaController
     public function exportPdf()
     {
         $filename = date('YmdHis') . '_contoh_crud.pdf';
-        $html     = view('stisla.crud-examples.export-pdf', [
-            'title'    => 'Contoh CRUD',
-            'data'     => $this->crudExampleRepository->getLatest(),
+        $html = view('stisla.crud-examples.export-pdf', [
+            'title' => 'Contoh CRUD',
+            'data' => $this->crudExampleRepository->getLatest(),
             'isExport' => true,
         ])->render();
         // return $html;

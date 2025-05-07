@@ -20,6 +20,7 @@ return [
                     'is_active_if_url_includes' => 'yajra-ajax-crud-examples*',
                     'is_mockup' => true
                 ],
+                // hapus
                 [
                     'menu_name' => 'Stisla Example',
                     'route_name' => null,
@@ -54,10 +55,10 @@ return [
                         ],
                         [
                             'menu_name' => 'Pricing',
-                            'route_name' => 'pricing.index',
+                            'route_name' => 'pricings.index',
                             'icon' => 'fas fa-dollar',
                             'permission' => null,
-                            'is_active_if_url_includes' => 'pricing*',
+                            'is_active_if_url_includes' => 'pricings*',
                             'is_mockup' => true
                         ],
                         [
@@ -137,53 +138,89 @@ return [
                         ]
                     ]
                 ],
+                // [
+                //     'menu_name' => 'Manajemen File',
+                //     'uri' => 'file-managers',
+                //     'icon' => 'fas fa-folder',
+                //     'permission' => 'Manajemen File',
+                //     'is_blank' => true,
+                //     'is_active_if_url_includes' => 'file-managers*'
+                // ],
                 [
-                    'menu_name' => 'Manajemen File',
-                    'uri' => 'file-managers',
-                    'icon' => 'fas fa-folder',
-                    'permission' => 'Manajemen File',
-                    'is_blank' => true,
-                    'is_active_if_url_includes' => 'file-managers*'
-                ],
-                [
-                    'menu_name' => 'Notifikasi',
-                    'route_name' => 'notifications.index',
-                    'icon' => 'fas fa-bell',
-                    'permission' => 'Notifikasi',
-                    'is_active_if_url_includes' => 'notifications*'
-                ],
-                [
-                    'menu_name' => 'Log',
-                    'route_name' => 'activity-logs.index',
-                    'icon' => 'fas fa-clock-rotate-left',
-                    'permission' => null,
-                    'is_active_if_url_includes' => 'activity-logs*',
+                    'menu_name' => 'Halaman Depan',
+                    'route_name' => 'settings.home',
+                    'icon' => 'fa fa-home',
+                    'permission' => 'Settings',
+                    'is_active_if_url_includes' => 'settings*',
                     'childs' => [
                         [
-                            'menu_name' => 'Log Aktivitas',
-                            'route_name' => 'activity-logs.index',
-                            'icon' => 'fas fa-clock-rotate-left',
-                            'permission' => 'Log Aktivitas',
-                            'is_active_if_url_includes' => 'activity-logs*'
+                            'menu_name' => 'Informasi Perusahaan',
+                            'route_name' => 'settings.home',
+                            'icon' => 'fa fa-info',
+                            'permission' => 'Settings',
+                            'is_active_if_url_includes' => 'settings/home*'
                         ],
                         [
-                            'menu_name' => 'Log Request',
-                            'route_name' => 'request-logs.index',
-                            'icon' => 'fas fa-clock-rotate-left',
-                            'permission' => 'Log Request',
-                            'is_active_if_url_includes' => 'request-logs*'
+                            'menu_name' => 'Izin Perusahaan',
+                            'route_name' => 'izin-perusahaan.index',
+                            'icon' => 'fa fa-building',
+                            'permission' => 'Settings',
+                            'is_active_if_url_includes' => 'settings/izin-perusahaan*'
                         ],
                         [
-                            'menu_name' => 'Laravel Log Viewer',
-                            'route_name' => 'logs.index',
-                            'icon' => 'fas fa-circle-exclamation',
-                            'permission' => 'Laravel Log Viewer',
-                            'is_active_if_url_includes' => 'logs*',
-                            'is_blank' => true
-                        ]
+                            'menu_name' => 'Pricing',
+                            'route_name' => 'pricing.index',
+                            'icon' => 'fa fa-window-restore',
+                            'permission' => 'Settings',
+                            'is_active_if_url_includes' => 'settings/pricing*'
+                        ],
+                        [
+                            'menu_name' => 'Partners',
+                            'route_name' => 'partners.index',
+                            'icon' => 'fa fa-handshake-o',
+                            'permission' => 'Settings',
+                            'is_active_if_url_includes' => 'settings/partners*'
+                        ],
                     ]
                 ],
-
+                // [
+                //     'menu_name' => 'Notifikasi',
+                //     'route_name' => 'notifications.index',
+                //     'icon' => 'fas fa-bell',
+                //     'permission' => 'Notifikasi',
+                //     'is_active_if_url_includes' => 'notifications*'
+                // ],
+                // [
+                //     'menu_name' => 'Log',
+                //     'route_name' => 'activity-logs.index',
+                //     'icon' => 'fas fa-clock-rotate-left',
+                //     'permission' => null,
+                //     'is_active_if_url_includes' => 'activity-logs*',
+                //     'childs' => [
+                //         [
+                //             'menu_name' => 'Log Aktivitas',
+                //             'route_name' => 'activity-logs.index',
+                //             'icon' => 'fas fa-clock-rotate-left',
+                //             'permission' => 'Log Aktivitas',
+                //             'is_active_if_url_includes' => 'activity-logs*'
+                //         ],
+                //         [
+                //             'menu_name' => 'Log Request',
+                //             'route_name' => 'request-logs.index',
+                //             'icon' => 'fas fa-clock-rotate-left',
+                //             'permission' => 'Log Request',
+                //             'is_active_if_url_includes' => 'request-logs*'
+                //         ],
+                //         [
+                //             'menu_name' => 'Laravel Log Viewer',
+                //             'route_name' => 'logs.index',
+                //             'icon' => 'fas fa-circle-exclamation',
+                //             'permission' => 'Laravel Log Viewer',
+                //             'is_active_if_url_includes' => 'logs*',
+                //             'is_blank' => true
+                //         ]
+                //     ]
+                // ],
                 [
                     'menu_name' => 'Profil',
                     'route_name' => 'profile.index',
@@ -214,6 +251,21 @@ return [
                 ]
             ]
         ]
+    ],
+
+    'home' => [
+        'welcome' => 'Selamat datang di HACINET, mitra terpercaya Anda dalam menjelajahi dunia internet dengan lancar dan andal. Kami adalah penyedia layanan internet yang berkomitmen untuk menyediakan koneksi yang stabil dan berkualitas tinggi kepada pelanggan kami.',
+        'visi' => 'Menjadi yang terdepan: Menekankan komitmen perusahaan untuk menjadi pemimpin dalam industri ISP di Indonesia. Menghubungkan Indonesia: Menyatakan misi perusahaan untuk menyediakan akses internet yang luas dan merata ke seluruh penjuru Indonesia. Memberdayakan masa depan: Menunjukkan fokus perusahaan pada pengembangan talenta muda dan mendorong inovasi untuk masa depan yang lebih baik.',
+        'misi' => 'Memperluas Jangkauan: Memberikan akses internet berkualitas tinggi ke seluruh Indonesia, terutama daerah terpencil. Membangun Tim Inovatif: Menciptakan lingkungan kerja yang dinamis bagi talenta muda untuk berinovasi dan memajukan teknologi internet. Memberikan Nilai Berkelanjutan: Memberikan keuntungan bagi pemangku kepentingan dan berkontribusi positif bagi bangsa.',
+        'desc_izin_perusahaan' => 'PT Haci Telekomunikasi Indonesia (HACINET) merupakan badan usaha yang sah di hadapan Hukum dan Undang-Undang yang berlaku di Republik Indonesia.
+Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi sebaagai berikut:',
+        'desc_pricing' => 'Tentukan Harga Paket Sesuai Kebutuhanmu',
+        'desc_customer_service' => 'Masih Bingung Menemukan Layanan Yang Cocok? Costumer Service Kami Siap Membantu',
+        'title_special_offer' => 'Dapatkan Koneksi Broadband Berkualitas dengan Harga Terjangkau!',
+        'desc_special_offer' => 'Nikmati koneksi broadband yang stabil dan andal tanpa harus menguras dompet Anda. Dapatkan layanan berkualitas dengan harga yang sangat terjangkau. Segera bergabung dan rasakan pengalaman menjelajah internet yang lancar dan menyenangkan!',
+        'email_company' => 'hacinet@corporation.net',
+        'full_adress' => 'Jl. Kh. Astari Carenang Gede - Gunung Kaler, Kab.Tangerang - Banten 15620',
+        'company_phone' => '0838123412341',
     ],
 
     'permissions' => [
@@ -737,7 +789,7 @@ return [
     ],
     'users' => [
         [
-            'name' => 'Hairul Anam',
+            'name' => 'Super Admin',
             'email' => 'superadmin@laraveltemplate.com',
             'password' => 'superadmin',
             'roles' => ['superadmin', 'admin'],

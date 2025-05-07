@@ -71,6 +71,11 @@ class FileService
         return $this->executeUpload($file, 'avatars');
     }
 
+    public function uploads(\Illuminate\Http\UploadedFile $file, $folder)
+    {
+        return $this->executeUpload($file, $folder);
+    }
+
     /**
      * upload avatar file
      *

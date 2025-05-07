@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SettingRequest;
+use App\Models\Setting;
 use App\Repositories\SettingRepository;
 use App\Services\FileService;
 use Illuminate\Http\Response;
@@ -47,8 +48,14 @@ class SettingController extends Controller
      */
     public function index($type)
     {
+        // dd($type);
+        if ($type == 'all') {
+            return $this->allSetting();
+        }
+
         if (config('app.template') === 'stisla') {
             $skins = $this->settingRepository->getStislaSkins();
+            $dataSetting = [];
             $fullTitle = 'Pengaturan Umum';
             if ($type === 'meta') {
                 $fullTitle = 'Pengaturan Meta';
@@ -58,6 +65,10 @@ class SettingController extends Controller
                 $fullTitle = 'Pengaturan Lainnya';
             } else if ($type === 'sso') {
                 $fullTitle = __('SSO Login dan Register');
+            } else if ($type == 'home') {
+                $fullTitle = __('Halaman Depan');
+                $dataSetting = $this->settingRepository->homepageSetting();
+                dd($dataSetting);
             }
             return view('stisla.settings.index', [
                 'skins' => $skins,
@@ -65,6 +76,7 @@ class SettingController extends Controller
                 'routeIndex' => route('settings.all'),
                 'fullTitle' => $fullTitle,
                 'title' => __('Pengaturan'),
+                'dataSetting' => $dataSetting,
             ]);
         } else {
             $skins = collect($this->settingRepository->getSkins())->map(function ($item) {
@@ -75,6 +87,26 @@ class SettingController extends Controller
                 'skins' => $skins,
             ]);
         }
+    }
+
+    public function homeSetting()
+    {
+        $skins = $this->settingRepository->getStislaSkins();
+
+        $fullTitle = __('Halaman Depan');
+        $dataSetting = $this->settingRepository->homepageSetting();
+        // $companyName = $this->settingRepository->companyName();
+        // $since = $this->settingRepository->since();
+        // dd($dataSetting, $companyName, $since);
+
+        return view('stisla.settings.index', [
+            'skins' => $skins,
+            'type' => 'home',
+            'routeIndex' => route('settings.all'),
+            'fullTitle' => $fullTitle,
+            'title' => __('Pengaturan'),
+            'dataSetting' => $dataSetting,
+        ]);
     }
 
     /**
@@ -106,17 +138,23 @@ class SettingController extends Controller
                     'icon' => 'eye'
                 ],
                 [
-                    'title' => __('Email'),
-                    'desc' => __('Pengaturan seperti provider email, pengirim, nama pengirim, dll.'),
-                    'route' => route('settings.index', ['type' => 'email']),
-                    'icon' => 'envelope'
+                    'title' => __('Halaman Depan'),
+                    'desc' => __('Pengaturan seperti informasi yang tampil di halaman depan.'),
+                    'route' => route('settings.index', ['type' => 'home']),
+                    'icon' => 'globe'
                 ],
-                [
-                    'title' => __('SSO Login dan Register'),
-                    'desc' => __('Pengaturan untuk SSO menggunakan media sosial seperti google, facebook, twitter dan github.'),
-                    'route' => route('settings.index', ['type' => 'sso']),
-                    'icon' => 'key'
-                ],
+                // [
+                //     'title' => __('Email'),
+                //     'desc' => __('Pengaturan seperti provider email, pengirim, nama pengirim, dll.'),
+                //     'route' => route('settings.index', ['type' => 'email']),
+                //     'icon' => 'envelope'
+                // ],
+                // [
+                //     'title' => __('SSO Login dan Register'),
+                //     'desc' => __('Pengaturan untuk SSO menggunakan media sosial seperti google, facebook, twitter dan github.'),
+                //     'route' => route('settings.index', ['type' => 'sso']),
+                //     'icon' => 'key'
+                // ],
                 [
                     'title' => __('Lainnya'),
                     'desc' => __('Pengaturan email verifikasi, lupa password, halaman daftar.'),

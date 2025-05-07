@@ -5,10 +5,13 @@ use App\Http\Controllers\BackupDatabaseController;
 use App\Http\Controllers\CrudExampleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GroupMenuController;
+use App\Http\Controllers\IzinPerusahaanController;
 use App\Http\Controllers\MenuManagementController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PermissionGroupController;
+use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestLogController;
 use App\Http\Controllers\RoleController;
@@ -23,9 +26,19 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.
 Route::post('dashboard', [DashboardController::class, 'post']);
 
 # SETTINGS
+# HALAMAN DEPAN
+Route::get('settings/home', [SettingController::class, 'homeSetting'])->name('settings.home');
+Route::get('izin-perusahaan/ajax', [IzinPerusahaanController::class, 'ajax'])->name('izin-perusahaan.ajax-yajra');
+Route::resource('izin-perusahaan', IzinPerusahaanController::class);
+Route::get('pricings/ajax', [PricingController::class, 'ajax'])->name('pricings.ajax-yajra');
+Route::resource('pricings', PricingController::class);
+Route::get('partners/ajax', [PartnerController::class, 'ajax'])->name('partners.ajax-yajra');
+Route::resource('partners', PartnerController::class);
+
 Route::get('settings/all', [SettingController::class, 'allSetting'])->name('settings.all');
-Route::get('settings/{type}', [SettingController::class, 'index'])->name('settings.index');
+Route::get('settings/{type?}', [SettingController::class, 'index'])->name('settings.index');
 Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
+
 
 # PROFILE
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');

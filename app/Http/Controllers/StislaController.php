@@ -64,42 +64,42 @@ class StislaController extends Controller
      *
      * @var String
      */
-    protected String $icon;
+    protected string $icon;
 
     /**
      * prefix route of module
      *
      * @var String
      */
-    protected String $prefixRoute;
+    protected string $prefixRoute;
 
     /**
      * name orientation pdf
      *
      * @var String
      */
-    protected String $orientationPdf = 'landscape';
+    protected string $orientationPdf = 'landscape';
 
     /**
      * name paper size pdf
      *
      * @var String
      */
-    protected String $paperSize = 'Letter';
+    protected string $paperSize = 'Letter';
 
     /**
      * name view folder
      *
      * @var String
      */
-    protected String $viewFolder;
+    protected string $viewFolder;
 
     /**
      * import excel example path
      *
      * @var String
      */
-    protected String $importExcelExamplePath;
+    protected string $importExcelExamplePath;
 
     /**
      * dropbox service
@@ -122,15 +122,15 @@ class StislaController extends Controller
      */
     public function __construct()
     {
-        $this->fileService           = new FileService;
-        $this->pdfService            = new PDFService;
-        $this->emailService          = new EmailService;
-        $this->userRepository        = new UserRepository;
-        $this->dropBoxService        = new DropBoxService;
+        $this->fileService = new FileService;
+        $this->pdfService = new PDFService;
+        $this->emailService = new EmailService;
+        $this->userRepository = new UserRepository;
+        $this->dropBoxService = new DropBoxService;
         $this->activityLogRepository = new ActivityLogRepository;
-        $this->requestLogRepository  = new RequestLogRepository;
-        $this->dropBoxService        = new DropBoxService;
-        $this->settingRepository     = new SettingRepository;
+        $this->requestLogRepository = new RequestLogRepository;
+        $this->dropBoxService = new DropBoxService;
+        $this->settingRepository = new SettingRepository;
     }
 
     /**
@@ -163,39 +163,39 @@ class StislaController extends Controller
     {
         $user = auth()->user();
 
-        $canCreate      = $user->can($permissionPrefix . ' Tambah');
-        $canUpdate      = $user->can($permissionPrefix . ' Ubah');
-        $canDetail      = $user->can($permissionPrefix . ' Detail');
-        $canDelete      = $user->can($permissionPrefix . ' Hapus');
+        $canCreate = $user->can($permissionPrefix . ' Tambah');
+        $canUpdate = $user->can($permissionPrefix . ' Ubah');
+        $canDetail = $user->can($permissionPrefix . ' Detail');
+        $canDelete = $user->can($permissionPrefix . ' Hapus');
         $canImportExcel = $user->can($permissionPrefix . ' Impor Excel');
-        $canExport      = $user->can($permissionPrefix . ' Ekspor');
-        $canForceLogin  = $user->can($permissionPrefix . ' Force Login');
+        $canExport = $user->can($permissionPrefix . ' Ekspor');
+        $canForceLogin = $user->can($permissionPrefix . ' Force Login');
 
         // dd($canImportExcel);
 
         return [
-            'canCreate'         => $canCreate,
-            'canUpdate'         => $canUpdate,
-            'canDetail'         => $canDetail,
-            'canDelete'         => $canDelete,
-            'canImportExcel'    => $canImportExcel,
-            'canExport'         => $canExport,
-            'canForceLogin'     => $canForceLogin,
-            'title'             => $title,
-            'moduleIcon'        => $this->icon,
-            'route_create'      => $canCreate ? route($routePrefix . '.create') : null,
-            'routeImportExcel'  => $canImportExcel && Route::has($routePrefix . '.import-excel') ? route($routePrefix . '.import-excel') : null,
+            'canCreate' => $canCreate,
+            'canUpdate' => $canUpdate,
+            'canDetail' => $canDetail,
+            'canDelete' => $canDelete,
+            'canImportExcel' => $canImportExcel,
+            'canExport' => $canExport,
+            'canForceLogin' => $canForceLogin,
+            'title' => $title,
+            'moduleIcon' => $this->icon,
+            'route_create' => $canCreate ? route($routePrefix . '.create') : null,
+            'routeImportExcel' => $canImportExcel && Route::has($routePrefix . '.import-excel') ? route($routePrefix . '.import-excel') : null,
             'routeExampleExcel' => $canImportExcel && Route::has($routePrefix . '.import-excel') ? route($routePrefix . '.import-excel-example') : null,
-            'routePdf'          => $canExport && Route::has($routePrefix . '.pdf') ? route($routePrefix . '.pdf') : null,
-            'routeExcel'        => $canExport && Route::has($routePrefix . '.excel') ? route($routePrefix . '.excel') : null,
-            'routeCsv'          => $canExport && Route::has($routePrefix . '.csv') ? route($routePrefix . '.csv') : null,
-            'routeJson'         => $canExport && Route::has($routePrefix . '.json') ? route($routePrefix . '.json') : null,
-            'routeYajra'        => Route::has($routePrefix . '.ajax-yajra') ? route($routePrefix . '.ajax-yajra') : null,
-            'routeStore'        => Route::has($routePrefix . '.store') ? route($routePrefix . '.store') : null,
-            'routePrefix'       => $routePrefix,
-            'isExport'          => false,
-            'folder'            => $routePrefix,
-            'viewFolder'        => $this->viewFolder,
+            'routePdf' => $canExport && Route::has($routePrefix . '.pdf') ? route($routePrefix . '.pdf') : null,
+            'routeExcel' => $canExport && Route::has($routePrefix . '.excel') ? route($routePrefix . '.excel') : null,
+            'routeCsv' => $canExport && Route::has($routePrefix . '.csv') ? route($routePrefix . '.csv') : null,
+            'routeJson' => $canExport && Route::has($routePrefix . '.json') ? route($routePrefix . '.json') : null,
+            'routeYajra' => Route::has($routePrefix . '.ajax-yajra') ? route($routePrefix . '.ajax-yajra') : null,
+            'routeStore' => Route::has($routePrefix . '.store') ? route($routePrefix . '.store') : null,
+            'routePrefix' => $routePrefix,
+            'isExport' => false,
+            'folder' => $routePrefix,
+            'viewFolder' => $this->viewFolder,
         ];
     }
 
@@ -206,33 +206,34 @@ class StislaController extends Controller
      * @param string $prefixRoute
      * @return array
      */
-    public function getDefaultDataCreate(string $title, string $prefixRoute)
+    public function getDefaultDataCreate(string $title, string $prefixRoute, array $others = [])
     {
         if (request()->ajax()) {
             $isAjax = true;
         }
         $routeIndex = route($prefixRoute . '.index');
         return [
-            'title'           => $title,
-            'routeIndex'      => $routeIndex,
-            'action'          => route($prefixRoute . '.store'),
-            'moduleIcon'      => $this->icon,
-            'isDetail'        => false,
-            'isAjax'          => $isAjax ?? false,
-            'breadcrumbs'     => [
+            'title' => $title,
+            'routeIndex' => $routeIndex,
+            'action' => route($prefixRoute . '.store'),
+            'moduleIcon' => $this->icon,
+            'isDetail' => false,
+            'isAjax' => $isAjax ?? false,
+            'breadcrumbs' => [
                 [
                     'label' => __('Dashboard'),
-                    'link'  => route('dashboard.index')
+                    'link' => route('dashboard.index')
                 ],
                 [
                     'label' => $title,
-                    'link'  => $routeIndex
+                    'link' => $routeIndex
                 ],
                 [
                     'label' => 'Tambah'
                 ]
             ],
             'viewFolder' => $this->viewFolder,
+            'others' => $others,
         ];
     }
 
@@ -245,31 +246,32 @@ class StislaController extends Controller
      * @param boolean $isDetail
      * @return array
      */
-    public function getDefaultDataDetail(string $title, string $prefixRoute, Model $row, bool $isDetail)
+    public function getDefaultDataDetail(string $title, string $prefixRoute, Model $row, bool $isDetail, array $others = [])
     {
-        $routeIndex  = route($prefixRoute . '.index');
+        $routeIndex = route($prefixRoute . '.index');
         $breadcrumbs = [
             [
                 'label' => __('Dashboard'),
-                'link'  => route('dashboard.index')
+                'link' => route('dashboard.index')
             ],
             [
                 'label' => $title,
-                'link'  => $routeIndex
+                'link' => $routeIndex
             ],
             [
                 'label' => $isDetail ? 'Detail' : 'Ubah'
             ]
         ];
         return [
-            'd'           => $row,
-            'title'       => $title,
-            'routeIndex'  => $routeIndex,
-            'action'      => route($prefixRoute . '.update', [$row->id]),
-            'moduleIcon'  => $this->icon,
-            'isDetail'    => $isDetail,
+            'd' => $row,
+            'title' => $title,
+            'routeIndex' => $routeIndex,
+            'action' => route($prefixRoute . '.update', [$row->id]),
+            'moduleIcon' => $this->icon,
+            'isDetail' => $isDetail,
             'breadcrumbs' => $breadcrumbs,
-            'viewFolder'  => $this->viewFolder,
+            'viewFolder' => $this->viewFolder,
+            'others' => $others,
         ];
     }
 
@@ -290,14 +292,14 @@ class StislaController extends Controller
      */
     protected function getExportData(): array
     {
-        $times      = date('Y-m-d_H-i-s');
+        $times = date('Y-m-d_H-i-s');
         $moduleName = str_replace('-', '_', $this->prefixRoute);
-        $data       = [
-            'isExport'   => true,
-            'pdf_name'   => $times . '_' . $moduleName . '.pdf',
+        $data = [
+            'isExport' => true,
+            'pdf_name' => $times . '_' . $moduleName . '.pdf',
             'excel_name' => $times . '_' . $moduleName . '.xlsx',
-            'csv_name'   => $times . '_' . $moduleName . '.csv',
-            'json_name'  => $times . '_' . $moduleName . '.json',
+            'csv_name' => $times . '_' . $moduleName . '.csv',
+            'json_name' => $times . '_' . $moduleName . '.json',
         ];
         return array_merge($this->getIndexData(), $data);
     }
@@ -309,7 +311,7 @@ class StislaController extends Controller
      */
     public function json(): BinaryFileResponse
     {
-        $data  = $this->getExportData();
+        $data = $this->getExportData();
         return $this->fileService->downloadJson($data['data'], $data['json_name']);
     }
 
@@ -320,7 +322,7 @@ class StislaController extends Controller
      */
     public function excel(): BinaryFileResponse
     {
-        $data  = $this->getExportData();
+        $data = $this->getExportData();
         return $this->fileService->downloadExcelGeneral('stisla.' . $this->viewFolder . '.table', $data, $data['excel_name']);
     }
 
@@ -331,7 +333,7 @@ class StislaController extends Controller
      */
     public function csv(): BinaryFileResponse
     {
-        $data  = $this->getExportData();
+        $data = $this->getExportData();
         return $this->fileService->downloadCsvGeneral('stisla.' . $this->viewFolder . '.table', $data, $data['csv_name']);
     }
 
@@ -342,7 +344,7 @@ class StislaController extends Controller
      */
     public function pdf(): Response
     {
-        $data  = $this->getExportData();
+        $data = $this->getExportData();
         return $this->fileService->downloadPdf('stisla.includes.others.export-pdf', $data, $data['pdf_name'], $this->paperSize, $this->orientationPdf);
     }
 }

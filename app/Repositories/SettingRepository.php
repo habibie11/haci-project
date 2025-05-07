@@ -106,6 +106,19 @@ class SettingRepository
     /**
      * get application name
      *
+     */
+    public static function homepageSetting()
+    {
+        $data = Setting::where(['type' => 'home'])->pluck('value', 'key') ?? null;
+        if (!$data) {
+            return null;
+        }
+        return (object) $data->toArray();
+    }
+
+    /**
+     * get application name
+     *
      * @return Setting
      */
     public static function appName()
@@ -232,14 +245,14 @@ class SettingRepository
     public static function getStislaSkins()
     {
         return [
-            "style"  => "default",
-            "brown"  => "brown",
+            "style" => "default",
+            "brown" => "brown",
             "purple" => "purple",
-            "red"    => "red",
+            "red" => "red",
             "indigo" => "indigo",
             "yellow" => "yellow",
             "orange" => "orange",
-            "pink"   => "pink",
+            "pink" => "pink",
             "citron" => "citron",
         ];
     }
@@ -281,7 +294,7 @@ class SettingRepository
     {
         if (TEMPLATE === STISLA) {
             if (is_null($bgLogin))
-                $bgLogin =  Setting::where('key', 'stisla_bg_login')->first()->value;
+                $bgLogin = Setting::where('key', 'stisla_bg_login')->first()->value;
             if (StringHelper::isUrl($bgLogin)) {
                 return $bgLogin;
             }
@@ -449,7 +462,7 @@ class SettingRepository
      */
     public static function stislaSidebarMini()
     {
-        return ((int)Setting::firstOrCreate(['key' => 'stisla_sidebar_mini'], ['value' => '0'])->value) === 1;
+        return ((int) Setting::firstOrCreate(['key' => 'stisla_sidebar_mini'], ['value' => '0'])->value) === 1;
     }
 
     /**
@@ -459,8 +472,9 @@ class SettingRepository
      */
     public static function isGoogleCaptchaLogin()
     {
-        if (config('captcha.secret') === 'default_secret') return false;
-        return ((int)Setting::firstOrCreate(['key' => 'is_google_captcha_login'], ['value' => '0'])->value) === 1;
+        if (config('captcha.secret') === 'default_secret')
+            return false;
+        return ((int) Setting::firstOrCreate(['key' => 'is_google_captcha_login'], ['value' => '0'])->value) === 1;
     }
 
     /**
@@ -470,8 +484,9 @@ class SettingRepository
      */
     public static function isGoogleCaptchaRegister()
     {
-        if (config('captcha.secret') === 'default_secret') return false;
-        return ((int)Setting::firstOrCreate(['key' => 'is_google_captcha_register'], ['value' => '0'])->value) === 1;
+        if (config('captcha.secret') === 'default_secret')
+            return false;
+        return ((int) Setting::firstOrCreate(['key' => 'is_google_captcha_register'], ['value' => '0'])->value) === 1;
     }
 
     /**
@@ -481,8 +496,9 @@ class SettingRepository
      */
     public static function isGoogleCaptchaForgotPassword()
     {
-        if (config('captcha.secret') === 'default_secret') return false;
-        return ((int)Setting::firstOrCreate(['key' => 'is_google_captcha_forgot_password'], ['value' => '0'])->value) === 1;
+        if (config('captcha.secret') === 'default_secret')
+            return false;
+        return ((int) Setting::firstOrCreate(['key' => 'is_google_captcha_forgot_password'], ['value' => '0'])->value) === 1;
     }
 
     /**
@@ -492,8 +508,9 @@ class SettingRepository
      */
     public static function isGoogleCaptchaResetPassword()
     {
-        if (config('captcha.secret') === 'default_secret') return false;
-        return ((int)Setting::firstOrCreate(['key' => 'is_google_captcha_reset_password'], ['value' => '0'])->value) === 1;
+        if (config('captcha.secret') === 'default_secret')
+            return false;
+        return ((int) Setting::firstOrCreate(['key' => 'is_google_captcha_reset_password'], ['value' => '0'])->value) === 1;
     }
 
     /**
@@ -529,7 +546,7 @@ class SettingRepository
      */
     public function isLoginWithGoogle()
     {
-        return ((int)Setting::firstOrCreate(['key' => 'is_login_with_google'], ['value' => '1'])->value) === 1;
+        return ((int) Setting::firstOrCreate(['key' => 'is_login_with_google'], ['value' => '1'])->value) === 1;
     }
 
     /**
@@ -539,7 +556,7 @@ class SettingRepository
      */
     public function isLoginWithFacebook()
     {
-        return ((int)Setting::firstOrCreate(['key' => 'is_login_with_facebook'], ['value' => '1'])->value) === 1;
+        return ((int) Setting::firstOrCreate(['key' => 'is_login_with_facebook'], ['value' => '1'])->value) === 1;
     }
 
     /**
@@ -549,7 +566,7 @@ class SettingRepository
      */
     public function isLoginWithTwitter()
     {
-        return ((int)Setting::firstOrCreate(['key' => 'is_login_with_twitter'], ['value' => '1'])->value) === 1;
+        return ((int) Setting::firstOrCreate(['key' => 'is_login_with_twitter'], ['value' => '1'])->value) === 1;
     }
 
     /**
@@ -559,7 +576,7 @@ class SettingRepository
      */
     public function isLoginWithGithub()
     {
-        return ((int)Setting::firstOrCreate(['key' => 'is_login_with_github'], ['value' => '1'])->value) === 1;
+        return ((int) Setting::firstOrCreate(['key' => 'is_login_with_github'], ['value' => '1'])->value) === 1;
     }
 
     /**
@@ -569,7 +586,7 @@ class SettingRepository
      */
     public function isRegisterWithFacebook()
     {
-        return ((int)Setting::firstOrCreate(['key' => 'is_register_with_facebook'], ['value' => '1'])->value) === 1;
+        return ((int) Setting::firstOrCreate(['key' => 'is_register_with_facebook'], ['value' => '1'])->value) === 1;
     }
 
     /**
@@ -579,7 +596,7 @@ class SettingRepository
      */
     public function isRegisterWithGoogle()
     {
-        return ((int)Setting::firstOrCreate(['key' => 'is_register_with_google'], ['value' => '1'])->value) === 1;
+        return ((int) Setting::firstOrCreate(['key' => 'is_register_with_google'], ['value' => '1'])->value) === 1;
     }
 
     /**
@@ -589,7 +606,7 @@ class SettingRepository
      */
     public function isRegisterWithTwitter()
     {
-        return ((int)Setting::firstOrCreate(['key' => 'is_register_with_twitter'], ['value' => '1'])->value) === 1;
+        return ((int) Setting::firstOrCreate(['key' => 'is_register_with_twitter'], ['value' => '1'])->value) === 1;
     }
 
     /**
@@ -599,6 +616,6 @@ class SettingRepository
      */
     public function isRegisterWithGithub()
     {
-        return ((int)Setting::firstOrCreate(['key' => 'is_register_with_github'], ['value' => '1'])->value) === 1;
+        return ((int) Setting::firstOrCreate(['key' => 'is_register_with_github'], ['value' => '1'])->value) === 1;
     }
 }

@@ -13,10 +13,12 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
-            $table->string('key', 50)->primary();
-            $table->longText('value');
-            $table->string('type')->default('sistem');
+        Schema::create('izin_perusahaans', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('nomor')->nullable();
+            $table->string('logo')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('izin_perusahaan');
     }
 }

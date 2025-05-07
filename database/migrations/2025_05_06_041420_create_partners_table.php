@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLayananTable extends Migration
+class CreateSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateLayananTable extends Migration
      */
     public function up()
     {
-        Schema::create('layanans', function (Blueprint $table) {
+        Schema::create('partners', function (Blueprint $table) {
             $table->id();
-			$table->string('nama', 100)->nullable();
-			$table->timestamps();
-			
+            $table->string('nama');
+            $table->string('image');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateLayananTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layanans');
+        Schema::dropIfExists('partners');
     }
 }
