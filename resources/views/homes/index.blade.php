@@ -67,19 +67,20 @@
 
   <div class="container">
 
-    <div class="row gy-4">
+    <div class="row gy-4" style="display: flex; flex-direction: start; justify-content: center; align-items: center;">
 
       @forelse ($izinPerusahaan as $item)
       <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative">
-          <div class="icon"><img src="{{ $item->logo }}" alt=""></div>
-          {{-- <div class="icon"><i class="bi bi-activity icon"></i></div> --}}
-          <h4>{{ $item->nama }}</h4>
+        <div class="service-item position-relative text-center rounded shadow-lg"
+          style="min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px;">
+          <div class="icon" style="margin-bottom: 20px;">
+            <img src="{{ $item->logo }}" alt="" style="width: 120px; height: 120px; object-fit: contain;">
+          </div>
+          <h4 style="margin-bottom: 15px;">{{ $item->nama }}</h4>
           <p>{{ $item->nomor }}</p>
         </div>
       </div>
       @empty
-
       @endforelse
 
     </div>
@@ -331,11 +332,8 @@
           </p>
           <h4><sup>Rp</sup><strong>{{ $specialOffer->harga }}</strong><span> / bulan</span></h4>
           <div class="text-center text-lg-start">
-            @php
-            $pesanWa = "Halo, saya sedang melihat produk di website Anda dan tertarik dengan produk ini:\n\n
-            $specialOffer->nama \n\n. Saya ingin menanyakan ketersediaan dan detail lebih lanjut. Terima kasih!";
-            @endphp
-            <a target="_blank" href="https://wa.me/{{ $dataSetting->company_phone }}?text={{ $pesanWa }}"
+            <a target="_blank"
+              href="https://wa.me/{{ $dataSetting->company_phone }}?text={{ sendWaMessage($dataSetting->wa_message, $specialOffer->nama) }}"
               class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
               <span>PESAN SEKARANG</span>
               <i class="bi bi-arrow-right"></i>
@@ -365,36 +363,38 @@
       data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
       <script type="application/json" class="swiper-config">
         {
-          "loop": true,
-          "speed": 600,
-          "autoplay": {
-            "delay": 5000
-          },
-          "slidesPerView": "auto",
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-          "breakpoints": {
-            "320": {
-              "slidesPerView": 1,
-              "spaceBetween": 40
-            },
-            "1200": {
-              "slidesPerView": 3,
-              "spaceBetween": 20
-            }
-          }
+        "loop": true,
+        "speed": 600,
+        "autoplay": {
+        "delay": 3500
+        },
+        "slidesPerView": "auto",
+        "pagination": {
+        "el": ".swiper-pagination",
+        "type": "bullets",
+        "clickable": true,
+        "dynamicBullets": true
+        },
+        "breakpoints": {
+        "320": {
+          "slidesPerView": 2,
+          "spaceBetween": 30
+        },
+        "1200": {
+          "slidesPerView": 4,
+          "spaceBetween": 10
         }
+        }
+      }
       </script>
 
-      <div class="swiper-wrapper">
+      <div class="swiper-wrapper mb-3">
 
         @forelse ($partners as $item)
-        <div class="swiper-slide">
+        <div class="swiper-slide text-center">
           <div class="slide-item">
-            <img width="200" height="200" src="{{ $item->image }}" class="testimonial-img" alt="{{ $item->name }}">
+            <img style="width: auto; height: 100px; object-fit: contain;" src="{{ $item->image }}"
+              class="testimonial-img" alt="{{ $item->name }}">
           </div>
         </div>
         @empty
@@ -402,82 +402,12 @@
         @endforelse
 
       </div>
-      <div class="swiper-pagination"></div>
     </div>
+    <div class="swiper-pagination mt-3"></div>
 
   </div>
 
 </section>
-
-<!-- /Testimonials Section -->
-
-<!-- Team Section -->
-{{-- <section id="team" class="team section light-background">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Team</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row gy-5">
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="member">
-          <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-          <div class="member-info">
-            <h4>Walter White</h4>
-            <span>Chief Executive Officer</span>
-            <div class="social">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="member">
-          <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-          <div class="member-info">
-            <h4>Sarah Jhonson</h4>
-            <span>Product Manager</span>
-            <div class="social">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="member">
-          <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-          <div class="member-info">
-            <h4>William Anderson</h4>
-            <span>CTO</span>
-            <div class="social">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-    </div>
-
-  </div>
-
-</section> --}}
-<!-- /Team Section -->
 
 <!-- Pricing Section -->
 <section id="pricings" class="pricing section">
@@ -491,32 +421,34 @@
 
   @foreach ($kategoriProduk['kategori'] as $key => $item)
   @if ($pricing->where('kategori', $key)->isNotEmpty())
-  <div class="kategori-produk text-center" data-aos="fade-up">
-    <h3>{{ $item }}</h3>
-  </div>
-  <div class="container mb-5">
-    <div class="row g-4 g-lg-0">
-
-      @foreach ($pricing->where('kategori', $key) as $produk)
-      <div class="col-lg-4 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-        <div class="pricing-item text-center">
-          <img class="rounded mx-auto d-block" width="80" height="80"
-            src="{{ $produk->logo ?? asset('assets/images/logo.png') }}" alt="">
-          <h3 class="mt-3">{{ $produk->nama }}</h3>
-          <h4><sup>Rp</sup>{{ $produk->harga }}<span> / bulan</span></h4>
-          <p>Kecepatan Internet : {{ $produk->kecepatan }}</p>
-          <ul class="list-unstyled">
-            @foreach ($produk->benefits_formatted as $bf)
-            <li><i class="bi bi-check"></i> <span>{{ $bf }}</span></li>
-            @endforeach
-          </ul>
-          <div class="text-center"><a href="#" class="buy-btn">Pesan Sekarang</a></div>
-        </div>
-      </div>
-      @endforeach
-
+  <section id="{{ $key }}">
+    <div class="kategori-produk text-center" data-aos="fade-up">
+      <h3>{{ $item }}</h3>
     </div>
-  </div>
+    <div class="container mb-5">
+      <div class="row g-4 g-lg-0">
+
+        @foreach ($pricing->where('kategori', $key) as $produk)
+        <div class="col-lg-4 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+          <div class="pricing-item text-center">
+            <img class="rounded mx-auto d-block" width="80" height="80"
+              src="{{ $produk->logo ?? asset('assets/images/logo.png') }}" alt="">
+            <h3 class="mt-3">{{ $produk->nama }}</h3>
+            <h4><sup>Rp</sup>{{ $produk->harga }}<span> / bulan</span></h4>
+            <p>Kecepatan Internet : {{ $produk->kecepatan }}</p>
+            <ul class="list-unstyled">
+              @foreach ($produk->benefits_formatted as $bf)
+              <li><i class="bi bi-check"></i> <span>{{ $bf }}</span></li>
+              @endforeach
+            </ul>
+            <div class="text-center"><a href="#" class="buy-btn">Pesan Sekarang</a></div>
+          </div>
+        </div>
+        @endforeach
+
+      </div>
+    </div>
+  </section>
   @endif
   @endforeach
   <div class="text-center" data-aos="fade-up" style="font-size: small;">
@@ -631,8 +563,8 @@
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    <h2>Kontak</h2>
+    <p>{{ $dataSetting->desc_contact }}</p>
   </div><!-- End Section Title -->
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -642,39 +574,37 @@
       <div class="col-lg-12">
 
         <div class="row gy-4">
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="200">
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="info-item w-100" data-aos="fade" data-aos-delay="200">
               <i class="bi bi-geo-alt"></i>
-              <h3>Address</h3>
-              <p>A108 Adam Street</p>
-              <p>New York, NY 535022</p>
+              <h3>Alamat</h3>
+              <p>{{ $dataSetting->full_address }}</p>
             </div>
           </div><!-- End Info Item -->
 
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="300">
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="info-item w-100" data-aos="fade" data-aos-delay="300">
               <i class="bi bi-telephone"></i>
-              <h3>Call Us</h3>
-              <p>+1 5589 55488 55</p>
-              <p>+1 6678 254445 41</p>
+              <h3>Hubungi kami</h3>
+              <p>{{ $dataSetting->company_phone }}</p>
+              <p>{{ $dataSetting->company_phone2 }}</p>
             </div>
           </div><!-- End Info Item -->
 
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="400">
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="info-item w-100" data-aos="fade" data-aos-delay="400">
               <i class="bi bi-envelope"></i>
-              <h3>Email Us</h3>
-              <p>info@example.com</p>
-              <p>contact@example.com</p>
+              <h3>Email</h3>
+              <p>{{ $dataSetting->email_company }}</p>
             </div>
           </div><!-- End Info Item -->
 
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="500">
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="info-item w-100" data-aos="fade" data-aos-delay="500">
               <i class="bi bi-clock"></i>
-              <h3>Open Hours</h3>
-              <p>Monday - Friday</p>
-              <p>9:00AM - 05:00PM</p>
+              <h3>Jam Kerja</h3>
+              <p>{{ $dataSetting->weekday }} <strong>{{ $dataSetting->open_hour }}</strong></p>
+              <p>{{ $dataSetting->weekend }} <strong>{{ $dataSetting->open_hour_weekend }}</strong></p>
             </div>
           </div><!-- End Info Item -->
 

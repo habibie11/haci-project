@@ -18,42 +18,61 @@
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="#hero" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#izin-perusahaan">Services</a></li>
-                    {{-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i
+                    {{-- <li><a href="#about">About</a></li>
+                    <li><a href="#izin-perusahaan">Services</a></li> --}}
+                    <li class="dropdown"><a href="#"><span>Tentang</span> <i
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
-                            <li><a href="#">Dropdown 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                            <li><a href="#about">Visi & Misi</a></li>
+                            {{-- <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
                                         class="bi bi-chevron-down toggle-dropdown"></i></a>
                                 <ul>
                                     <li><a href="#">Deep Dropdown 1</a></li>
                                     <li><a href="#">Deep Dropdown 2</a></li>
                                     <li><a href="#">Deep Dropdown 3</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="#">Dropdown 2</a></li>
-                            <li><a href="#">Dropdown 3</a></li>
+                            </li> --}}
+                            <li><a href="#izin-perusahaan">Izin Perusahaan</a></li>
+                            <li><a href="#call-to-action">Customer Service</a></li>
+                            <li><a href="#partners">Partner</a></li>
                         </ul>
-                    </li> --}}
-                    <li><a href="#partners">Partners</a></li>
-                    <li><a href="#pricings">Pricings</a></li>
+                    </li>
+                    <li class="dropdown"><a href="#"><span>Layanan</span> <i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            @foreach ($kategoriProduk['kategori'] as $key => $item)
+                            <li><a href="#{{$key}}">{{$item}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
                     <li><a href="#contact">Contact</a></li>
                     @if (auth()->check())
                     <a href="{{ route('dashboard.index') }}">{{ __('Dashboard')
                         }}</a>
                     @else
-                    <a href="{{ route('login') }}">Masuk</a>
+                    <a href="{{ route('login') }}">Login</a>
                     @endif
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
             <div class="header-social-links">
-                {{-- <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a> --}}
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                @if(!empty($dataSetting->twitter))
+                <a href="https://www.twitter.com/{{ $dataSetting->twitter }}" target="_blank"
+                    rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+                @endif
+                @if(!empty($dataSetting->facebook))
+                <a href="https://www.facebook.com/{{ $dataSetting->facebook }}" target="_blank"
+                    rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+                @endif
+                @if(!empty($dataSetting->instagram))
+                <a href="https://www.instagram.com/{{ $dataSetting->instagram }}" target="_blank"
+                    rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                @endif
+                @if(!empty($dataSetting->linkedin))
+                <a href="https://www.linkedin.com/in/{{ $dataSetting->linkedin }}" target="_blank"
+                    rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+                @endif
             </div>
 
         </div>

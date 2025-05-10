@@ -48,6 +48,12 @@ function executeMenu(array $item)
     }
 }
 
+function sendWaMessage($pesan, $namaProduk)
+{
+    $pesanFinal = str_replace("[nama_produk]", $namaProduk, $pesan);
+    return $pesanFinal;
+}
+
 function active_template()
 {
     return config('app.template');
