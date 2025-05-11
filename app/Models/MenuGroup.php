@@ -29,6 +29,6 @@ class MenuGroup extends Model
 
     public function menus()
     {
-        return $this->hasMany(Menu::class, 'menu_group_id')->whereNull('parent_menu_id');
+        return $this->hasMany(Menu::class, 'menu_group_id')->whereNull('parent_menu_id')->active();
     }
 }

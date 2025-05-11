@@ -50,8 +50,9 @@
         @include('stisla.includes.forms.buttons.btn-primary', ['icon' => 'fas fa-sign-in-alt', 'label' => __('Masuk'), 'type' => 'submit'])
       </div>
 
+      {{-- sementara --}}
+      {{-- @include('stisla.auth.login.includes.btn-social') --}}
 
-      @include('stisla.auth.login.includes.btn-social')
     </form>
     @include('stisla.includes.auth.auth-footer')
 

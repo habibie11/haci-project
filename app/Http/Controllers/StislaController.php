@@ -171,8 +171,6 @@ class StislaController extends Controller
         $canExport = $user->can($permissionPrefix . ' Ekspor');
         $canForceLogin = $user->can($permissionPrefix . ' Force Login');
 
-        // dd($canImportExcel);
-
         return [
             'canCreate' => $canCreate,
             'canUpdate' => $canUpdate,

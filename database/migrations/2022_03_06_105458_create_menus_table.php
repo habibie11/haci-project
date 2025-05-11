@@ -27,6 +27,7 @@ class CreateMenusTable extends Migration
             $table->unsignedBigInteger('menu_group_id')->nullable();
             $table->foreign('menu_group_id')->on('menu_groups')->references('id')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->boolean('active')->default(true);
         });
     }
 

@@ -58,10 +58,10 @@
                   @include('stisla.includes.forms.inputs.input', ['required' => true, 'name' => 'icon', 'label' => 'Icon'])
                 </div>
                 <div class="col-md-6">
-                  @include('stisla.includes.forms.inputs.input', ['required' => true, 'name' => 'permission', 'label' => 'Permission'])
+                  @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'permission', 'label' => 'Permission'])
                 </div>
                 <div class="col-md-6">
-                  @include('stisla.includes.forms.inputs.input', ['required' => true, 'name' => 'is_active_if_url_includes', 'label' => 'Is Active If URL Includes'])
+                  @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'is_active_if_url_includes', 'label' => 'Is Active If URL Includes'])
                 </div>
                 <div class="col-md-6">
                   @include('stisla.includes.forms.selects.select', [
@@ -79,6 +79,15 @@
                       'options' => $groupOptions,
                       'label' => 'Grup Menu',
                       'required' => true,
+                  ])
+                </div>
+                <div class="col-md-6">
+                  @include('stisla.includes.forms.inputs.input-radio-toggle', [
+                  'required' => true,
+                  'id' => 'active',
+                  'name' => 'active',
+                  'label' => __('Aktif'),
+                  'options' => [1 => 'Ya', 0 => 'Tidak'],
                   ])
                 </div>
                 <div class="col-md-12" id="formAreaButton">

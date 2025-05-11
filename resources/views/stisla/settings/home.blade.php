@@ -195,11 +195,32 @@
                     'required' => true,
                     ])
                 </div>
+                <div class="col-sm-6">
+                    @include('stisla.includes.forms.inputs.input', [
+                    'id' => 'logo_website',
+                    'label' => __('Logo Website'),
+                    'required' => false,
+                    'accept' => 'image/png,image/jpg',
+                    'type' => 'file',
+                    ])
+                </div>
                 <div class="col-md-12">
                     @include('stisla.includes.forms.buttons.btn-save')
                     @include('stisla.includes.forms.buttons.btn-reset')
                 </div>
             </div>
         </form>
+        <br />
+        <br />
+        @if (!empty($dataSetting->logo_website))
+        <div class="row">
+            <div class="col-md-4 col-lg-3">
+                <a href="{{ $dataSetting->logo_website }}" target="_blank">
+                    <img class="img-thumbnail" src="{{ $dataSetting->logo_website }}" alt="Logo Website">
+                </a>
+                <div class="text-center font-bold"><strong>Logo Website</strong></div>
+            </div>
+        </div>
+        @endif
     </div>
 </div>

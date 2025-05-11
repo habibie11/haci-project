@@ -85,6 +85,15 @@ class PartnerController extends StislaController
      */
     public function store(Request $request)
     {
+        if ($this->overMaximum()) {
+            $errorMessage = 'Sudah mencapai batas maksimal 10';
+            if ($request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $errorMessage,
+                ], 400);
+            }
+        }
         $partner = $this->partnerRepository->create($this->getStoreData($request));
         logCreate('Partner', $partner);
         $successMessage = successMessageCreate('Partner');
@@ -94,7 +103,16 @@ class PartnerController extends StislaController
                 'message' => $successMessage,
             ]);
         }
-        return redirect()->back()->with('successMessage', $successMessage);
+    }
+
+    /**
+     * Check if total data is over 10
+     *
+     * @return bool
+     */
+    public function overMaximum(): bool
+    {
+        return $this->partnerRepository->getLatest()->count() >= 10;
     }
 
     public function edit(Request $request, Partner $partner)

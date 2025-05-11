@@ -197,6 +197,8 @@ class SettingController extends Controller
                 $value = $this->fileService->uploadStislaBgLogin($request->file('stisla_bg_login'));
             } else if ($key === 'stisla_bg_home') {
                 $value = $this->fileService->uploadStislaBgHome($request->file('stisla_bg_home'));
+            } else if ($key === 'logo_website') {
+                $value = $this->fileService->uploads($request->file('logo_website'), 'logo');
             }
 
             if (in_array($key, $encrypts)) {

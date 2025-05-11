@@ -27,8 +27,8 @@ class SettingRequest extends FormRequest
 
             if ($this->type === 'umum') {
                 return [
-                    'application_name' => 'required',
-                    'company_name' => 'required',
+                    'application_name' => 'nullable',
+                    'company_name' => 'nullable',
                     'since' => 'required|numeric',
                     'application_version' => 'required',
                 ];

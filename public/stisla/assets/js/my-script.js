@@ -699,9 +699,9 @@ function deleteGlobal(e, action_url) {
             } else {
               getData();
             }
-            successMsg(response.data.message).then(function () {});
+            successMsg(response.data.message).then(function () { });
           })
-          .catch(function (error) {});
+          .catch(function (error) { });
       } else {
         $('#formDeleteGlobal').attr('action', action_url);
         document.getElementById('formDeleteGlobal').submit();
@@ -783,7 +783,7 @@ function getData() {
       initDataTables();
       $('#modalForm').modal('hide');
     })
-    .catch(function (error) {});
+    .catch(function (error) { });
 }
 
 function onSubmitForm(e) {
@@ -810,7 +810,10 @@ function onSubmitForm(e) {
       });
     })
     .catch(function (error) {
+      console.log(1234);
+      
       swal('Gagal', error.response.data.message, 'error');
+      $('#modalForm').find('button[type="submit"]').attr('disabled', false).html('Simpan');
     });
 }
 

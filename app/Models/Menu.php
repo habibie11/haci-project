@@ -25,6 +25,7 @@ class Menu extends Model
         'is_blank',
         'uri',
         'menu_group_id',
+        'active',
     ];
 
     /**
@@ -66,6 +67,11 @@ class Menu extends Model
             return route($this->route_name);
         }
         return '#';
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', '=', 1);
     }
 
     /**

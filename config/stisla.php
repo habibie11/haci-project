@@ -278,6 +278,7 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
         'weekend' => 'Sabtu - Minggu',
         'open_hour' => '08:00 - 17:00',
         'open_hour_weekend' => '08:00 - 12:00',
+        'logo_website' => '/home/img/family.png',
     ],
 
     'permissions' => [
@@ -609,11 +610,11 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
     ],
 
     'settings' => [
-        ['key' => 'application_name', 'value' => 'Laravel 11 Template'],
+        ['key' => 'application_name', 'value' => 'HACINET'],
         ['key' => 'application_version', 'value' => '1.0.0'],
         ['key' => 'app_description', 'value' => 'Deskripsi sistem tulis disini'],
-        ['key' => 'city', 'value' => 'Jember'],
-        ['key' => 'company_name', 'value' => 'PT Anam Developer'],
+        ['key' => 'city', 'value' => 'Tangerang'],
+        ['key' => 'company_name', 'value' => 'PT Haci Telekomunikasi Indonesia'],
         ['key' => 'country', 'value' => 'Indonesia'],
         [
             'key' => 'favicon',
@@ -621,16 +622,16 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
             'is_url' => true
         ],
         ['key' => 'logo', 'value' => 'assets/images/logo.png', 'is_url' => true],
-        ['key' => 'since', 'value' => '2021'],
+        ['key' => 'since', 'value' => '2024'],
 
         [
             'key' => 'meta_author',
-            'value' => 'Hairul Anam'
+            'value' => 'Hacinet'
         ],
-        ['key' => 'meta_description', 'value' => 'PT Anam Developer'],
+        ['key' => 'meta_description', 'value' => 'PT Haci Telekomunikasi Indonesia'],
         [
             'key' => 'meta_keywords',
-            'value' => 'Sistem Informasi, Pemrograman, Github, PHP, Laravel, Stisla, Heroku, Gitlab, MySQL'
+            'value' => 'Wifi, Internet, ISP, Jaringan, Provider Internet, Provider Wifi, Provider Internet Terbaik, Provider Wifi Terbaik, Provider Internet Murah, Provider Wifi Murah'
         ],
 
         [

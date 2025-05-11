@@ -15,7 +15,7 @@
   <div class="custom-switches-stacked mt-2">
     @foreach ($options as $opValue => $opLabel)
       <label class="custom-switch">
-        <input @if ($value == $opValue) checked @endif type="radio" name="{{ $name }}" value="{{ $opValue }}" class="custom-switch-input"
+        <input @if (($value == $opValue) || (isset($checked) && $checked == $opValue)) checked @endif type="radio" name="{{ $name }}" value="{{ $opValue }}" class="custom-switch-input"
           id="{{ $id }}{{ $loop->iteration }}" @if ($required) required @endif>
         <span class="custom-switch-indicator"></span>
         <span class="custom-switch-description">{{ $opLabel }}</span>

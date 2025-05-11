@@ -28,13 +28,21 @@
     ])
   </div>
   <div class="col-md-6">
-    @include('stisla.includes.forms.inputs.input', [
+    {{-- @include('stisla.includes.forms.inputs.input', [
     'id' => 'benefit',
     'name' => 'benefit',
     'label' => __('Benefit'),
     'type' => 'text',
     'required' => true,
     'icon' => 'fas fa-check',
+    ]) --}}
+    @include('stisla.includes.forms.editors.textarea', [
+    'id' => 'benefit',
+    'name' => 'benefit',
+    'label' => __('Benefit'),
+    'required' => true,
+    'icon' => 'fas fa-check',
+    'height' => '4rem',
     ])
   </div>
   <div class="col-md-6">
@@ -64,6 +72,7 @@
     'name' => 'is_special_offer',
     'label' => __('Spesial Offer'),
     'options' => [1 => 'Ya', 0 => 'Tidak'],
+    'checked' => $d->is_special_offer ?? 0,
     ])
   </div>
 </div>

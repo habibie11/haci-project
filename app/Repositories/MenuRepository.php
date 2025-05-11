@@ -38,4 +38,14 @@ class MenuRepository extends Repository
     {
         return $this->model->with(['group', 'parentMenu', 'childs'])->get();
     }
+
+    /**
+     * getFullData Active
+     *
+     * @return Collection
+     */
+    public function getFullDataActive()
+    {
+        return $this->model->active()->with(['group', 'parentMenu', 'childs'])->get();
+    }
 }

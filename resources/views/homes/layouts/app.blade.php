@@ -46,11 +46,13 @@
                         </ul>
                     </li>
                     <li><a href="#contact">Contact</a></li>
+                    {{-- TODO : redirect ke website billing --}}
                     @if (auth()->check())
-                    <a href="{{ route('dashboard.index') }}">{{ __('Dashboard')
-                        }}</a>
+                    <li><a href="{{ route('dashboard.index') }}"
+                            class="btn btn-primary text-white rounded-pill px-4 py-2">{{ __('Dashboard') }}</a></li>
                     @else
-                    <a href="{{ route('login') }}">Login</a>
+                    <li><a href="{{ route('login') }}"
+                            class="btn btn-primary text-white rounded-pill px-4 py-2">Login</a></li>
                     @endif
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

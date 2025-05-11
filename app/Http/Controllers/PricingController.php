@@ -103,6 +103,14 @@ class PricingController extends StislaController
      */
     public function store(Request $request)
     {
+        $maxValidasi = $this->hasThreeRecordsInCategory($request->kategori);
+        if ($maxValidasi) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Produk pada kategori ' . ucwords(str_replace('_', ' ', $request->kategori)) . ' sudah ada 3, silahkan hapus salah satu atau ubah produk yang lain',
+            ], 400);
+        }
+
         $pricing = $this->pricingRepository->create($this->getStoreData($request));
         logCreate('Pricing', $pricing);
         $successMessage = successMessageCreate('Pricing');
@@ -112,7 +120,16 @@ class PricingController extends StislaController
                 'message' => $successMessage,
             ]);
         }
-        return redirect()->back()->with('successMessage', $successMessage);
+    }
+
+    /**
+     * Check if there are exactly 3 records in the pricing table with the given category.
+     *
+     * @param string $kategori
+     */
+    public function hasThreeRecordsInCategory(string $kategori)
+    {
+        return Pricing::where('kategori', $kategori)->count() >= 3;
     }
 
     public function edit(Request $request, Pricing $pricing)
@@ -121,7 +138,6 @@ class PricingController extends StislaController
         if ($request->ajax()) {
             return view('stisla.pricings.only-form', $data);
         }
-        return view('stisla.pricings.form', $data);
     }
 
     private function getDetailData(Pricing $pricing, bool $isDetail = false)
@@ -139,6 +155,15 @@ class PricingController extends StislaController
     public function update(Request $request, Pricing $pricing)
     {
         $data = $this->getStoreData($request);
+        // dd($data);
+
+        $maxValidasi = $this->hasThreeRecordsInCategory($request->kategori);
+        if ($maxValidasi) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Produk pada kategori ' . ucwords(str_replace('_', ' ', $request->kategori)) . ' sudah ada 3, silahkan hapus salah satu atau ubah produk yang lain',
+            ], 400);
+        }
 
         $userNew = $this->pricingRepository->update($data, $pricing->id);
         logUpdate('Pengguna', $pricing, $userNew);
@@ -150,8 +175,6 @@ class PricingController extends StislaController
                 'message' => $successMessage,
             ]);
         }
-
-        return redirect()->back()->with('successMessage', $successMessage);
     }
 
     /**

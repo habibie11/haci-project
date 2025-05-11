@@ -34,15 +34,15 @@ class MenuManagementController extends StislaController
     {
         parent::__construct();
 
-        $this->icon                   = 'fa fa-bars';
-        $this->prefixRoute            = 'menu-managements';
-        $this->viewFolder             = 'menu-managements';
-        $this->paperSize              = 'Legal';
+        $this->icon = 'fa fa-bars';
+        $this->prefixRoute = 'menu-managements';
+        $this->viewFolder = 'menu-managements';
+        $this->paperSize = 'Legal';
 
         $this->importExcelExamplePath = public_path('excel_examples/sample_menus.xlsx');
 
-        $this->menuRepository         = new MenuRepository;
-        $this->menuGroupRepository    = new MenuGroupRepository;
+        $this->menuRepository = new MenuRepository;
+        $this->menuGroupRepository = new MenuGroupRepository;
 
         $this->defaultMiddleware('Menu');
     }
@@ -54,9 +54,10 @@ class MenuManagementController extends StislaController
      */
     protected function getIndexData()
     {
-        $data = $this->menuRepository->getFullData();
+        $data = $this->menuRepository->getFullDataActive();
+        // dd($data);
         $defaultData = $this->getDefaultDataIndex(__('Menu'), 'Menu', 'menu-managements');
-        $data        = array_merge(['data' => $data], $defaultData);
+        $data = array_merge(['data' => $data], $defaultData);
         return $data;
     }
 
@@ -68,6 +69,7 @@ class MenuManagementController extends StislaController
     public function index()
     {
         $data = $this->getIndexData();
+        // dd($data);
         return view('stisla.menu-managements.index', $data);
     }
 
@@ -78,17 +80,17 @@ class MenuManagementController extends StislaController
      */
     public function create()
     {
-        $title         = __('Menu');
-        $fullTitle     = __('Tambah Menu');
-        $groupOptions  = $this->menuGroupRepository->getSelectOptions('group_name', 'id');
+        $title = __('Menu');
+        $fullTitle = __('Tambah Menu');
+        $groupOptions = $this->menuGroupRepository->getSelectOptions('group_name', 'id');
         $parentOptions = $this->menuRepository->getSelectOptions('menu_name', 'id');
-        $defaultData   = $this->getDefaultDataCreate($title, 'menu-managements');
+        $defaultData = $this->getDefaultDataCreate($title, 'menu-managements');
 
         $parentOptions[''] = __('Tidak Ada');
 
         return view('stisla.menu-managements.form', array_merge($defaultData, [
-            'fullTitle'     => $fullTitle,
-            'groupOptions'  => $groupOptions,
+            'fullTitle' => $fullTitle,
+            'groupOptions' => $groupOptions,
             'parentOptions' => $parentOptions,
         ]));
     }
@@ -111,6 +113,7 @@ class MenuManagementController extends StislaController
             'is_blank',
             'uri',
             'menu_group_id',
+            'active',
         ]);
         $result = $this->menuRepository->create($data);
 
@@ -129,16 +132,16 @@ class MenuManagementController extends StislaController
      */
     private function getDetailData(Menu $menuManagement, bool $isDetail = false)
     {
-        $title         = __('Manajemen Menu');
-        $defaultData   = $this->getDefaultDataDetail($title, 'menu-managements', $menuManagement, $isDetail);
-        $groupOptions  = $this->menuGroupRepository->getSelectOptions('group_name', 'id');
+        $title = __('Manajemen Menu');
+        $defaultData = $this->getDefaultDataDetail($title, 'menu-managements', $menuManagement, $isDetail);
+        $groupOptions = $this->menuGroupRepository->getSelectOptions('group_name', 'id');
         $parentOptions = $this->menuRepository->getSelectOptions('menu_name', 'id');
 
         $parentOptions[''] = __('Tidak Ada');
         return array_merge($defaultData, [
-            'title'         => $title,
-            'fullTitle'     => $isDetail ? __('Detail Menu') : __('Ubah Menu'),
-            'groupOptions'  => $groupOptions,
+            'title' => $title,
+            'fullTitle' => $isDetail ? __('Detail Menu') : __('Ubah Menu'),
+            'groupOptions' => $groupOptions,
             'parentOptions' => $parentOptions,
         ]);
     }
@@ -174,6 +177,7 @@ class MenuManagementController extends StislaController
             'is_blank',
             'uri',
             'menu_group_id',
+            'active',
         ]);
         $newData = $this->menuRepository->update($data, $menuManagement->id);
 

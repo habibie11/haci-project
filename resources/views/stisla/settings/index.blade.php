@@ -40,14 +40,14 @@
             @method('put')
             @csrf
             <div class="row clearfix">
-              <div class="col-sm-6">
+              {{-- <div class="col-sm-6">
                 @include('stisla.includes.forms.inputs.input', [
                 'id' => 'application_name',
                 'label' => __('Nama Aplikasi'),
                 'value' => $_app_name,
                 'required' => true,
                 ])
-              </div>
+              </div> --}}
               <div class="col-sm-6">
                 @include('stisla.includes.forms.inputs.input', [
                 'id' => 'company_name',
@@ -72,6 +72,7 @@
                 'label' => __('Version'),
                 'value' => $_application_version,
                 'required' => true,
+                'readonly' => true,
                 ])
               </div>
               <div class="col-sm-6">
@@ -92,7 +93,7 @@
                 'required' => true,
                 ])
               </div>
-              <div class="col-sm-6">
+              {{-- <div class="col-sm-6">
                 @include('stisla.includes.forms.inputs.input', [
                 'id' => 'country',
                 'label' => __('Version'),
@@ -100,7 +101,7 @@
                 'label' => __('Negara'),
                 'required' => true,
                 ])
-              </div>
+              </div> --}}
 
               <div class="col-md-12">
                 @include('stisla.includes.forms.buttons.btn-save')
