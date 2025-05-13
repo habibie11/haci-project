@@ -2,7 +2,6 @@
 <html lang="en">
 
 @include('homes.common.header')
-
 @stack('styles')
 
 <body class="index-page">
@@ -10,28 +9,22 @@
     <header id="header" class="header d-flex align-items-center sticky-top">
         <div class="container position-relative d-flex align-items-center">
 
-            <a href="index.html" class="logo d-flex align-items-center me-auto">
+            <a href="/" class="logo d-flex align-items-center me-auto">
                 <!-- <img src="assets/img/logo.png" alt=""> -->
+                @if(!empty($dataSetting->logo_website))
+                <img src="{{ $dataSetting->logo_website }}" alt="Logo">
+                @else
                 <h1 class="sitename">{{ $appName }}</h1>
+                @endif
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="#hero" class="active">Home</a></li>
-                    {{-- <li><a href="#about">About</a></li>
-                    <li><a href="#izin-perusahaan">Services</a></li> --}}
                     <li class="dropdown"><a href="#"><span>Tentang</span> <i
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><a href="#about">Visi & Misi</a></li>
-                            {{-- <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Dropdown 1</a></li>
-                                    <li><a href="#">Deep Dropdown 2</a></li>
-                                    <li><a href="#">Deep Dropdown 3</a></li>
-                                </ul>
-                            </li> --}}
                             <li><a href="#izin-perusahaan">Izin Perusahaan</a></li>
                             <li><a href="#call-to-action">Customer Service</a></li>
                             <li><a href="#partners">Partner</a></li>
@@ -86,6 +79,8 @@
 
     @include('homes.common.footer')
 
+    <a href="#" id="themeToggle" class="toggle-darkmode d-flex align-items-center justify-content-center active"
+        style="position: fixed; bottom: 20px; right: 20px;" onclick="event.preventDefault()">🌙</a>
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
@@ -104,6 +99,26 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('home/js/main.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Apply the saved theme
+        if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.textContent = '☀️';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+        });
+    });
+    </script>
     @stack('scripts')
 
 </body>

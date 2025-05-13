@@ -11,10 +11,8 @@ $isAjaxYajra = $isAjaxYajra ?? false;
   <thead>
     <tr>
       <th class="text-center">#</th>
+      <th>{{ __('Logo') }}</th>
       <th>{{ __('Nama') }}</th>
-      <th>{{ __('Kebutuhan') }}</th>
-      <th>{{ __('No WA') }}</th>
-      <th>{{ __('Maps') }}</th>
       <th>{{ __('Ditambahkan pada') }}</th>
       <th>{{ __('Diubah pada') }}</th>
       @if (($canUpdate || $canDelete || ($canForceLogin && $item->id != auth()->id())) && $isExport === false)

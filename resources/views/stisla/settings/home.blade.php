@@ -204,6 +204,24 @@
                     'type' => 'file',
                     ])
                 </div>
+                <div class="col-sm-6">
+                    @include('stisla.includes.forms.inputs.input', [
+                    'id' => 'special_offer_image',
+                    'label' => __('Special Offer Image'),
+                    'required' => false,
+                    'accept' => 'image/png,image/jpg',
+                    'type' => 'file',
+                    ])
+                </div>
+                <div class="col-sm-6">
+                    @include('stisla.includes.forms.inputs.input', [
+                    'id' => 'popup_image',
+                    'label' => __('Gambar Popup'),
+                    'required' => false,
+                    'accept' => 'image/png,image/jpg',
+                    'type' => 'file',
+                    ])
+                </div>
                 <div class="col-md-12">
                     @include('stisla.includes.forms.buttons.btn-save')
                     @include('stisla.includes.forms.buttons.btn-reset')
@@ -212,7 +230,7 @@
         </form>
         <br />
         <br />
-        @if (!empty($dataSetting->logo_website))
+        {{-- @if (!empty($dataSetting->special_offer_image)) --}}
         <div class="row">
             <div class="col-md-4 col-lg-3">
                 <a href="{{ $dataSetting->logo_website }}" target="_blank">
@@ -220,7 +238,19 @@
                 </a>
                 <div class="text-center font-bold"><strong>Logo Website</strong></div>
             </div>
+            <div class="col-md-4 col-lg-3">
+                <a href="{{ $dataSetting->special_offer_image }}" target="_blank">
+                    <img class="img-thumbnail" src="{{ $dataSetting->special_offer_image }}" alt="Special Offer Image">
+                </a>
+                <div class="text-center font-bold"><strong>Special Offer Image</strong></div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <a href="{{ $dataSetting->popup_image }}" target="_blank">
+                    <img class="img-thumbnail" src="{{ $dataSetting->popup_image }}" alt="Gambar Popup">
+                </a>
+                <div class="text-center font-bold"><strong>Gambar Popup</strong></div>
+            </div>
         </div>
-        @endif
+        {{-- @endif --}}
     </div>
 </div>

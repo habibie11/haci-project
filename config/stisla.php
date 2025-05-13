@@ -278,7 +278,9 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
         'weekend' => 'Sabtu - Minggu',
         'open_hour' => '08:00 - 17:00',
         'open_hour_weekend' => '08:00 - 12:00',
-        'logo_website' => '/home/img/family.png',
+        'logo_website' => 'images/logo.png',
+        'special_offer_image' => '/home/img/family.png',
+        'popup_image' => '/home/img/family.png',
     ],
 
     'permissions' => [

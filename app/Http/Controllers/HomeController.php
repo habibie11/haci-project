@@ -6,13 +6,17 @@ use App\Repositories\IzinPerusahaanRepository;
 use App\Repositories\PartnerRepository;
 use App\Repositories\PricingRepository;
 use App\Repositories\SettingRepository;
+use App\Models\Messager;
+use App\Repositories\MessagerRepository;
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class HomeController extends StislaController
 {
     private IzinPerusahaanRepository $izinPerusahaanRepository;
     private PricingRepository $pricingRepository;
     private PartnerRepository $partnerRepository;
+    private MessagerRepository $messagerRepository;
 
     /**
      * constructor method
@@ -24,6 +28,7 @@ class HomeController extends StislaController
         $this->izinPerusahaanRepository = new IzinPerusahaanRepository();
         $this->pricingRepository = new PricingRepository();
         $this->partnerRepository = new PartnerRepository();
+        $this->messagerRepository = new MessagerRepository();
         parent::__construct();
     }
 
@@ -64,5 +69,29 @@ class HomeController extends StislaController
                 'broadband_home_user_package' => 'Broadband Home User Package',
             ]
         ];
+    }
+
+    public function InsertMessager(Request $request)
+    {
+        $messager = $this->messagerRepository->create($this->getStoreData($request));
+        $successMessage = successMessageCreate('Messager');
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => $successMessage,
+            ]);
+        }
+    }
+
+    private function getStoreData(Request $request): array
+    {
+        $data = $request->only([
+            'nama',
+            'kebutuhan',
+            'no_wa',
+            'maps'
+        ]);
+
+        return $data;
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GroupMenuController;
 use App\Http\Controllers\IzinPerusahaanController;
 use App\Http\Controllers\MenuManagementController;
+use App\Http\Controllers\MessagerController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PermissionController;
@@ -34,6 +35,8 @@ Route::get('pricings/ajax', [PricingController::class, 'ajax'])->name('pricings.
 Route::resource('pricings', PricingController::class);
 Route::get('partners/ajax', [PartnerController::class, 'ajax'])->name('partners.ajax-yajra');
 Route::resource('partners', PartnerController::class);
+Route::get('messagers/ajax', [MessagerController::class, 'ajax'])->name('messagers.ajax-yajra');
+Route::resource('messagers', MessagerController::class);
 
 Route::get('settings/all', [SettingController::class, 'allSetting'])->name('settings.all');
 Route::get('settings/{type?}', [SettingController::class, 'index'])->name('settings.index');

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 # HALAMAN DEPAN
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/insert-messager', [HomeController::class, 'InsertMessager'])->name('home.insert-messager');
 
 # AUTH
 Route::get('auth/login', [AuthController::class, 'loginForm'])->name('login');

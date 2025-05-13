@@ -25,4 +25,6 @@
 
     <!-- Main CSS File -->
     <link href="{{ asset('home/css/main.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('home/css/darkmode.css') }}" rel="stylesheet">
 </head>

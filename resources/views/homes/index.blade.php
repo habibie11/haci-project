@@ -1,6 +1,7 @@
 @extends('homes.layouts.app', \App\Repositories\SettingRepository::settings())
 
 @section('content')
+
 <!-- Hero Section -->
 <section id="hero" class="hero section">
 
@@ -11,9 +12,6 @@
         <p>{{ $dataSetting->welcome }}</p>
         <div class="d-flex">
           <a href="#about" class="btn-get-started">Get Started</a>
-          {{-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
-            class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch
-              Video</span></a> --}}
         </div>
       </div>
       <div class="col-lg-5 order-1 order-lg-2 hero-img">
@@ -54,7 +52,8 @@
     </div>
   </div>
 
-</section><!-- /About Section -->
+</section>
+<!-- /About Section -->
 
 <!-- Services Section -->
 <section id="izin-perusahaan" class="services section">
@@ -63,7 +62,8 @@
   <div class="container section-title" data-aos="fade-up">
     <h2>Izin Perusahaan</h2>
     <p>{{ $dataSetting->desc_izin_perusahaan }}</p>
-  </div><!-- End Section Title -->
+  </div>
+  <!-- End Section Title -->
 
   <div class="container">
 
@@ -74,7 +74,8 @@
         <div class="service-item position-relative text-center rounded shadow-lg"
           style="min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px;">
           <div class="icon" style="margin-bottom: 20px;">
-            <img src="{{ $item->logo }}" alt="" style="width: 120px; height: 120px; object-fit: contain;">
+            <img src="{{ $item->logo ?? asset('assets/images/just_logo.png') }}" alt=""
+              style="width: 120px; height: 120px; object-fit: contain;">
           </div>
           <h4 style="margin-bottom: 15px;">{{ $item->nama }}</h4>
           <p>{{ $item->nomor }}</p>
@@ -87,231 +88,8 @@
 
   </div>
 
-</section><!-- /Services Section -->
-
-<!-- Portfolio Section -->
-{{-- <section id="portfolio" class="portfolio section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Portfolio</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-      <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-        <li data-filter="*" class="filter-active">All</li>
-        <li data-filter=".filter-app">App</li>
-        <li data-filter=".filter-product">Product</li>
-        <li data-filter=".filter-branding">Branding</li>
-        <li data-filter=".filter-books">Books</li>
-      </ul><!-- End Portfolio Filters -->
-
-      <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Product 1</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/product-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Branding 1</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/branding-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Books 1</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery-app"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Product 2</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery-product"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Branding 2</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/branding-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Books 2</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/books-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-book"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery-app"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Product 3</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/product-3.jpg" title="Product 3" data-gallery="portfolio-gallery-product"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Branding 3</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Books 3</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur</p>
-              <a href="assets/img/portfolio/books-3.jpg" title="Branding 3" data-gallery="portfolio-gallery-book"
-                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div><!-- End Portfolio Item -->
-
-      </div><!-- End Portfolio Container -->
-
-    </div>
-
-  </div>
-
-</section> --}}
-<!-- /Portfolio Section -->
-
-<!-- Call To Action Section -->
-<section id="call-to-action" class="call-to-action section light-background">
-
-  <img src="{{ asset('home/img/cta-bg.jpg')}}" alt="">
-
-  <div class="container">
-
-    <div class="row" data-aos="zoom-in" data-aos-delay="100">
-      <div class="col-xl-9 text-center text-xl-start">
-        <h3>Customer Service</h3>
-        <h4>{{ $dataSetting->desc_customer_service }}</h4>
-      </div>
-      <div class="col-xl-3 cta-btn-container text-center">
-        <a class="cta-btn align-middle"
-          href="https://wa.me/{{ $dataSetting->company_phone }}?text=Halo%20saya%20tertarik%20dengan%20produk%20Anda"><i
-            class="bi bi-whatsapp"></i> {{ $dataSetting->company_phone }}</a>
-      </div>
-    </div>
-
-  </div>
-
 </section>
-<!-- /Call To Action Section -->
+<!-- /Services Section -->
 
 <!-- About Section -->
 <section id="special-offer" class="about section">
@@ -320,7 +98,7 @@
     <div class="row gx-0">
 
       <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-        <img src="{{ $dataSetting->logo_website }}" class="img-fluid" alt="">
+        <img src="{{ $dataSetting->special_offer_image }}" class="img-fluid" alt="">
       </div>
 
       <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
@@ -332,7 +110,7 @@
           </p>
           <h4><sup>Rp</sup><strong>{{ $specialOffer->harga }}</strong><span> / bulan</span></h4>
           <div class="text-center text-lg-start">
-            <a target="_blank"
+            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-produk="{{ $specialOffer->nama }}"
               href="https://wa.me/{{ $dataSetting->company_phone }}?text={{ sendWaMessage($dataSetting->wa_message, $specialOffer->nama) }}"
               class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
               <span>PESAN SEKARANG</span>
@@ -345,7 +123,8 @@
     </div>
   </div>
 
-</section><!-- /About Section -->
+</section>
+<!-- /About Section -->
 
 
 <!-- Testimonials Section -->
@@ -432,7 +211,7 @@
         <div class="col-lg-4 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
           <div class="pricing-item text-center">
             <img class="rounded mx-auto d-block" width="80" height="80"
-              src="{{ $produk->logo ?? asset('assets/images/logo.png') }}" alt="">
+              src="{{ $produk->logo ?? asset('assets/images/just_logo.png') }}" alt="">
             <h3 class="mt-3">{{ $produk->nama }}</h3>
             <h4><sup>Rp</sup>{{ $produk->harga }}<span> / bulan</span></h4>
             <p>Kecepatan Internet : {{ $produk->kecepatan }}</p>
@@ -441,9 +220,12 @@
               <li><i class="bi bi-check"></i> <span>{{ $bf }}</span></li>
               @endforeach
             </ul>
-            <div class="text-center"><a target="_blank"
-                href="https://wa.me/{{ $dataSetting->company_phone }}?text={{ sendWaMessage($dataSetting->wa_message, $produk->nama) }}"
-                class="buy-btn">Pesan Sekarang</a></div>
+            <div class="text-center">
+              <button type="button" class="buy-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                data-produk="{{ $produk->nama }}">
+                Pesan Sekarang
+              </button>
+            </div>
           </div>
         </div>
         @endforeach
@@ -464,6 +246,30 @@
 </section>
 <!-- /Pricing Section -->
 
+<!-- Call To Action Section -->
+<section id="call-to-action" class="call-to-action section light-background">
+
+  <img src="{{ asset('home/img/person-using-laptop.avif')}}" alt="">
+
+  <div class="container">
+
+    <div class="row" data-aos="zoom-in" data-aos-delay="100">
+      <div class="col-xl-9 text-center text-xl-start">
+        <h3>Customer Service</h3>
+        <h4>{{ $dataSetting->desc_customer_service }}</h4>
+      </div>
+      <div class="col-xl-3 cta-btn-container text-center">
+        <a class="cta-btn align-middle"
+          href="https://wa.me/{{ $dataSetting->company_phone }}?text=Halo%20saya%20tertarik%20dengan%20produk%20Anda"><i
+            class="bi bi-whatsapp"></i> {{ $dataSetting->company_phone }}</a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<!-- /Call To Action Section -->
+
 <!-- Contact Section -->
 <section id="contact" class="contact section">
 
@@ -471,7 +277,8 @@
   <div class="container section-title" data-aos="fade-up">
     <h2>Kontak</h2>
     <p>{{ $dataSetting->desc_contact }}</p>
-  </div><!-- End Section Title -->
+  </div>
+  <!-- End Section Title -->
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -523,5 +330,156 @@
   </div>
 
 </section><!-- /Contact Section -->
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Isi Formulir</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Silakan isi formulir di bawah ini untuk menghubungi kami melalui WhatsApp.</p>
+        <form id="customerForm">
+          <div class="mb-3">
+            <label for="customerName" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="customerName" placeholder="Masukkan nama Anda" required>
+          </div>
+          <div class="mb-3">
+            <label for="customerNeeds" class="form-label">Kebutuhan</label>
+            <textarea class="form-control" id="customerNeeds" rows="3" placeholder="Masukkan kebutuhan Anda (opsional)"
+              required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="customerPhone" class="form-label">Nomor WhatsApp</label>
+            <input type="number" class="form-control" id="customerPhone" placeholder="Masukkan nomor WhatsApp Anda"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="customerLocation" class="form-label">Lokasi Map</label>
+            <input type="text" class="form-control" id="customerLocation" placeholder="Klik untuk mendapatkan lokasi"
+              readonly required>
+            <button type="button" id="getLocation" class="btn btn-secondary mt-2">Dapatkan Lokasi</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal">Tutup</button>
+        <button type="button" id="sendCustomerData" class="btn btn-primary">Kirim</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Welcome Modal -->
+<div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center m-3">
+        <button type="button" class="btn-close" style="position: absolute; right: -10px; top: -10px;"
+          data-bs-dismiss="modal" aria-label="Close" id="closeWelcomeModal"></button>
+        <img src="{{ $dataSetting->popup_image }}" class="img-fluid rounded" alt="Welcome Image">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('getLocation').addEventListener('click', function () {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+        document.getElementById('customerLocation').value = mapsLink;
+      }, function (error) {
+        alert('Gagal mendapatkan lokasi. Pastikan izin lokasi diaktifkan.');
+      });
+    } else {
+      alert('Geolokasi tidak didukung oleh browser Anda.');
+    }
+  });
+
+  document.getElementById('closeWelcomeModal').addEventListener('click', function () {
+    localStorage.setItem('welcomeModalClosed', 'true');
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+    if (!localStorage.getItem('welcomeModalClosed')) {
+      setTimeout(() => {
+        welcomeModal.show();
+      }, 500);
+    }
+    
+    const modal = document.getElementById('staticBackdrop');
+    modal.addEventListener('show.bs.modal', function (event) {
+      const button = event.relatedTarget; // Button that triggered the modal
+      const product = button.getAttribute('data-produk'); // Extract info from data-produk attribute
+      
+      const hiddenInput = document.createElement('input');
+      hiddenInput.type = 'hidden';
+      hiddenInput.id = 'productInput';
+      hiddenInput.name = 'product';
+      hiddenInput.value = product;
+
+      // Remove existing hidden input if it exists
+      const existingInput = document.getElementById('productInput');
+      if (existingInput) {
+        existingInput.remove();
+      }
+
+      // Append the hidden input to the form
+      document.getElementById('customerForm').appendChild(hiddenInput);
+    });
+  });
+
+  document.getElementById('sendCustomerData').addEventListener('click', function () {
+    const name = document.getElementById('customerName').value;
+    const needs = document.getElementById('customerNeeds').value;
+    const phone = document.getElementById('customerPhone').value;
+    const location = document.getElementById('customerLocation').value;
+    const product = document.getElementById('productInput') ? document.getElementById('productInput').value : '';
+
+    if (name && needs && phone && location) {
+      const data = {
+        nama: name,
+        kebutuhan: needs,
+        no_wa: phone,
+        maps: location,
+        _token: '{{ csrf_token() }}'
+      };
+
+      fetch('{{ route("home.insert-messager") }}', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': data._token
+        },
+        body: JSON.stringify(data)
+      })
+      .then(result => {
+          const waMessage = `{{ sendWaMessage($dataSetting->wa_message, '${product}') }}`;
+          const waLink = `https://wa.me/{{ $dataSetting->company_phone }}?text=${waMessage} %0A %0A lokasi saya di ${encodeURIComponent(location)}`;
+
+            // Reset all form inputs
+            document.getElementById('customerForm').reset();
+
+            // Close the modal
+            const modal = document.getElementById('staticBackdrop');
+
+            // close modal click id closeModal
+            const closeModal = document.getElementById('closeModal');
+            closeModal.click();
+
+          window.open(waLink, '_blank');
+      })
+    } else {
+      alert('Harap isi semua data!');
+    }
+  });
+</script>
 
 @endsection
