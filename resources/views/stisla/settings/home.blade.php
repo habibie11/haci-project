@@ -222,6 +222,15 @@
                     'type' => 'file',
                     ])
                 </div>
+                <div class="col-sm-6">
+                    @include('stisla.includes.forms.inputs.input', [
+                    'id' => 'branch_image',
+                    'label' => __('Gambar Branch/Cabang'),
+                    'required' => false,
+                    'accept' => 'image/png,image/jpg',
+                    'type' => 'file',
+                    ])
+                </div>
                 <div class="col-md-12">
                     @include('stisla.includes.forms.buttons.btn-save')
                     @include('stisla.includes.forms.buttons.btn-reset')
@@ -249,6 +258,12 @@
                     <img class="img-thumbnail" src="{{ $dataSetting->popup_image }}" alt="Gambar Popup">
                 </a>
                 <div class="text-center font-bold"><strong>Gambar Popup</strong></div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <a href="{{ $dataSetting->branch_image }}" target="_blank">
+                    <img class="img-thumbnail" src="{{ $dataSetting->branch_image }}" alt="Gambar Popup">
+                </a>
+                <div class="text-center font-bold"><strong>Gambar Branch/Cabang</strong></div>
             </div>
         </div>
         {{-- @endif --}}

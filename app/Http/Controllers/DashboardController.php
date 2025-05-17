@@ -12,6 +12,7 @@ use App\Models\PermissionGroup;
 use App\Models\User;
 use App\Repositories\SettingRepository;
 use App\Services\DatabaseService;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Spatie\Permission\Models\Permission;
@@ -35,7 +36,6 @@ class DashboardController extends StislaController
     /**
      * Menampilkan halaman dashboard
      *
-     * @return Response
      */
     public function index()
     {
@@ -152,10 +152,22 @@ class DashboardController extends StislaController
 
         // $logs = $this->activityLogRepository->getMineLatest();
 
+        $data = DB::table('visitors')
+            ->selectRaw('DATE(visited_at) as tanggal, COUNT(*) as total')
+            ->groupByRaw('DATE(visited_at)')
+            ->orderBy('tanggal')
+            ->get();
+
+        // Siapkan data untuk Chart.js
+        $labels = $data->pluck('tanggal')->toArray();
+        $values = $data->pluck('total')->toArray();
+
         return view('stisla.dashboard.index', [
             'widgets' => $widgets,
             // 'logs'    => $logs,
-            'user'    => $user,
+            'user' => $user,
+            'labels' => $labels,
+            'values' => $values,
         ]);
     }
 

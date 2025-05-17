@@ -4,10 +4,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestingController;
+use App\Http\Middleware\LogVisitor;
 use Illuminate\Support\Facades\Route;
 
 # HALAMAN DEPAN
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->middleware(LogVisitor::class)->name('home');
 Route::post('/insert-messager', [HomeController::class, 'InsertMessager'])->name('home.insert-messager');
 
 # AUTH

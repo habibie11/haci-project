@@ -270,6 +270,39 @@
 </section>
 <!-- /Call To Action Section -->
 
+<!-- Branch Section -->
+<section id="branch" class="contact section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up" style="padding-bottom: 40px;">
+    <h2>Branch</h2>
+  </div>
+  <!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row gy-4">
+
+      <div class="col-12 text-center">
+        <a href="{{ $dataSetting->branch_image }}" class="glightbox-branch">
+          <img class="branch-img" src="{{ $dataSetting->branch_image }}" alt="" style="cursor: zoom-in;">
+        </a>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          if (typeof GLightbox !== 'undefined') {
+            GLightbox({ selector: '.glightbox-branch' });
+          }
+        });
+      </script>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- /Contact Section -->
+
 <!-- Contact Section -->
 <section id="contact" class="contact section">
 
@@ -329,7 +362,8 @@
 
   </div>
 
-</section><!-- /Contact Section -->
+</section>
+<!-- /Contact Section -->
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">

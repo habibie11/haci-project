@@ -36,6 +36,14 @@
     /* Inverts the colors to make the text appear white */
 }
 
+.dark-mode #branch img {
+    filter: brightness(1) invert(1);
+}
+
+.dark-mode #glightbox-slider img {
+    filter: brightness(1) invert(1);
+}
+
 .dark-mode ul li ul {
     background-color: #121212 !important;
     color: #ffffff !important;

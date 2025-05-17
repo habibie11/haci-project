@@ -204,6 +204,8 @@ class SettingController extends Controller
             } else if ($key === 'logo_website') {
                 // tambah validasi ukuran dll
                 $value = $this->fileService->uploads($request->file('logo_website'), 'home');
+            } else if ($key === 'branch_image') {
+                $value = $this->fileService->uploads($request->file('branch_image'), 'home');
             }
 
             if (in_array($key, $encrypts)) {

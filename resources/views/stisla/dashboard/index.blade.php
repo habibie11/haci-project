@@ -115,24 +115,13 @@ Dashboard
     </div>
   </div>
 
-  <div class="col-12 col-md-6 col-lg-6">
+  <div class="col-lg-12 col-md-6 col-lg-6">
     <div class="card">
       <div class="card-header">
-        <h4>Line Chart</h4>
+        <h4>Analisis Jumlah Pengunjung</h4>
       </div>
       <div class="card-body">
-        <canvas id="myChart"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-12 col-md-6 col-lg-6">
-    <div class="card">
-      <div class="card-header">
-        <h4>Pie Chart</h4>
-      </div>
-      <div class="card-body">
-        <canvas id="myChart4"></canvas>
+        <canvas id="visitorChart"></canvas>
       </div>
     </div>
   </div>
@@ -199,7 +188,43 @@ Dashboard
 @endsection
 @push('js')
 <script src="{{ asset('stisla/node_modules/chart.js/dist/Chart.min.js') }}"></script>
-<script src="{{ asset('stisla/assets/js/page/modules-chartjs.js') }}"></script>
+{{-- <script src="{{ asset('stisla/assets/js/page/modules-chartjs.js') }}"></script> --}}
+<script>
+  const ctx = document.getElementById('visitorChart').getContext('2d');
+
+        const visitorChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["2025-04-13","2025-05-14","2025-05-15", "2025-05-16"],
+                datasets: [{
+                    label: 'Total Kunjungan',
+                    data: [100,170,205,500],
+                    borderWidth: 2,
+                    backgroundColor: '#6777ef',
+                    borderColor: '#6777ef',
+                    borderWidth: 2.5,
+                    pointBackgroundColor: '#ffffff',
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Tanggal' }
+                    },
+                    y: {
+                        title: { display: true, text: 'Jumlah Kunjungan' },
+                        beginAtZero: true
+                    }
+                },
+                legend: {
+                  display: false
+                },
+            }
+        });
+  
+</script>
 <script>
   function openTo(link) {
       window.location.href = link;

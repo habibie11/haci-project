@@ -281,6 +281,7 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
         'logo_website' => 'images/logo.png',
         'special_offer_image' => '/home/img/family.png',
         'popup_image' => '/home/img/family.png',
+        'branch_image' => '/home/img/branch.png'
     ],
 
     'permissions' => [

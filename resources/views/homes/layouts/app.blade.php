@@ -28,6 +28,7 @@
                             <li><a href="#izin-perusahaan">Izin Perusahaan</a></li>
                             <li><a href="#call-to-action">Customer Service</a></li>
                             <li><a href="#partners">Partner</a></li>
+                            <li><a href="#branch">Branch</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span>Layanan</span> <i
