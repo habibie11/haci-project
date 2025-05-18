@@ -21,7 +21,7 @@ class CreatePricingsTable extends Migration
             $table->string('benefit')->nullable();
             $table->string('harga')->nullable();
             $table->string('kategori')->nullable();
-            $table->tinyInteger('is_speciaL_offer')->nullable();
+            $table->boolean('is_special_offer')->nullable();
             $table->timestamps();
         });
     }

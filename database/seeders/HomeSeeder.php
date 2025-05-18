@@ -17,11 +17,8 @@ class HomeSeeder extends Seeder
      */
     public function run()
     {
-        // $data = json_decode(file_get_contents(database_path('seeders/data/menus.json')), true);
-        $data = config('stisla.settings.home');
-        foreach ($data as $item) {
-            $this->execute($item);
-        }
+        $data = config('stisla.home');
+        $this->execute($data);
     }
 
     public function execute(array $item)

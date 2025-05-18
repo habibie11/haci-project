@@ -7,7 +7,8 @@
                     <a href="index.html" class="logo d-flex align-items-center">
                         {{-- <span class="sitename">{{ $appName }}</span> --}}
                         @if(!empty($dataSetting->logo_website))
-                        <img src="{{ $dataSetting->logo_website }}" alt="Logo">
+                        <img src="{{ $dataSetting->logo_website ?? asset('assets/images/logo.png') }}" alt="Logo"
+                            onerror="this.onerror=null;this.src='{{ asset('assets/images/logo.png') }}';">
                         @else
                         <h1 class="sitename">{{ $appName }}</h1>
                         @endif

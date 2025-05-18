@@ -23,28 +23,28 @@ return [
                             'menu_name' => 'Informasi Perusahaan',
                             'route_name' => 'settings.home',
                             'icon' => 'fa fa-info',
-                            'permission' => 'Settings',
+                            'permission' => 'Halaman Depan',
                             'is_active_if_url_includes' => 'settings/home*'
                         ],
                         [
                             'menu_name' => 'Izin Perusahaan',
                             'route_name' => 'izin-perusahaan.index',
                             'icon' => 'fa fa-building',
-                            'permission' => 'Settings',
+                            'permission' => 'Halaman Depan',
                             'is_active_if_url_includes' => 'settings/izin-perusahaan*'
                         ],
                         [
                             'menu_name' => 'Pricing',
-                            'route_name' => 'pricing.index',
+                            'route_name' => 'pricings.index',
                             'icon' => 'fa fa-window-restore',
-                            'permission' => 'Settings',
-                            'is_active_if_url_includes' => 'settings/pricing*'
+                            'permission' => 'Halaman Depan',
+                            'is_active_if_url_includes' => 'settings/pricings*'
                         ],
                         [
                             'menu_name' => 'Partners',
                             'route_name' => 'partners.index',
                             'icon' => 'fa fa-handshake-o',
-                            'permission' => 'Settings',
+                            'permission' => 'Halaman Depan',
                             'is_active_if_url_includes' => 'settings/partners*'
                         ],
                     ]
@@ -116,43 +116,6 @@ return [
                     ]
                 ],
                 [
-                    'menu_name' => 'Halaman Depan',
-                    'route_name' => 'settings.home',
-                    'icon' => 'fa fa-home',
-                    'permission' => 'Halaman Depan',
-                    'is_active_if_url_includes' => 'settings*',
-                    'childs' => [
-                        [
-                            'menu_name' => 'Informasi Perusahaan',
-                            'route_name' => 'settings.home',
-                            'icon' => 'fa fa-info',
-                            'permission' => 'Halaman Depan',
-                            'is_active_if_url_includes' => 'settings/home*'
-                        ],
-                        [
-                            'menu_name' => 'Izin Perusahaan',
-                            'route_name' => 'izin-perusahaan.index',
-                            'icon' => 'fa fa-building',
-                            'permission' => 'Halaman Depan',
-                            'is_active_if_url_includes' => 'settings/izin-perusahaan*'
-                        ],
-                        [
-                            'menu_name' => 'Pricing',
-                            'route_name' => 'pricing.index',
-                            'icon' => 'fa fa-window-restore',
-                            'permission' => 'Halaman Depan',
-                            'is_active_if_url_includes' => 'settings/pricing*'
-                        ],
-                        [
-                            'menu_name' => 'Partners',
-                            'route_name' => 'partners.index',
-                            'icon' => 'fa fa-handshake-o',
-                            'permission' => 'Halaman Depan',
-                            'is_active_if_url_includes' => 'settings/partners*'
-                        ],
-                    ]
-                ],
-                [
                     'menu_name' => 'Profil',
                     'route_name' => 'profile.index',
                     'icon' => 'fas fa-user',
@@ -202,7 +165,7 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
         'weekend' => 'Sabtu - Minggu',
         'open_hour' => '08:00 - 17:00',
         'open_hour_weekend' => '08:00 - 12:00',
-        'logo_website' => 'images/logo.png',
+        'logo_website' => 'images/logo_website.png',
         'special_offer_image' => '/home/img/family.png',
         'popup_image' => '/home/img/family.png',
         'branch_image' => '/home/img/branch.png'
@@ -554,10 +517,10 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
         ['key' => 'mail_mailgun_domain', 'value' => 'test'],
         ['key' => 'mail_mailgun_api_key', 'value' => 'test'],
 
-        ['key' => 'is_login_must_verified', 'value' => '1'],
-        ['key' => 'is_active_register_page', 'value' => '1'],
+        ['key' => 'is_login_must_verified', 'value' => '0'],
+        ['key' => 'is_active_register_page', 'value' => '0'],
 
-        ['key' => 'is_forgot_password_send_to_email', 'value' => '1'],
+        ['key' => 'is_forgot_password_send_to_email', 'value' => '0'],
         ['key' => 'google_captcha_site_key', 'value' => 'default_site_key'],
         ['key' => 'google_captcha_secret', 'value' => 'default_secret'],
         ['key' => 'is_google_captcha_login', 'value' => '1'],
@@ -615,6 +578,4 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
             'address' => 'Gunung Kaler, Tangerang, Banten'
         ],
     ]
-
-
 ];
