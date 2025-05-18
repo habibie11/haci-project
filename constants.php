@@ -9,4 +9,4 @@ define('CREATE', 'CREATE');
 define('UPDATE', 'UPDATE');
 define('DELETE', 'DELETE');
 define('DETAIL', 'DETAIL');
-define('DEFAULT_LOGO', asset('assets/images/just_logo.png'));
+define('DEFAULT_LOGO', '/assets/images/just_logo.png');
