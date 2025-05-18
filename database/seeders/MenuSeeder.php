@@ -27,7 +27,6 @@ class MenuSeeder extends Seeder
 
         MenuGroup::truncate();
         Menu::truncate();
-        // $data = json_decode(file_get_contents(database_path('seeders/data/menus.json')), true);
         $data = config('stisla.menus');
         foreach ($data as $item) {
             $this->execute($item);
@@ -50,9 +49,6 @@ class MenuSeeder extends Seeder
         ]);
         foreach ($item['menus'] as $menu) {
             if ((isset($menu['is_mockup']) && $menu['is_mockup'] === true && $this->withMockup) || !isset($menu['is_mockup'])) {
-                // if ($menu['menu_name'] === 'Notifikasi' || $menu['menu_name'] === 'Profil') {
-                //     continue;
-                // }
                 $menuObj = Menu::create([
                     'menu_name'                 => $menu['menu_name'],
                     'icon'                      => $menu['icon'],

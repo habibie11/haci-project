@@ -38,18 +38,22 @@ class RolePermissionSeeder extends Seeder
 
         Permission::truncate();
 
-        // default permissions
         $permissions = config('stisla.permissions');
         foreach ($permissions as $permission) {
+            // buat group permission atau update jika sudah ada
             $group = PermissionGroup::updateOrCreate([
                 'group_name' => $permission['group']
             ]);
+            // buat permission dari config permissions sesuai group
             $perm = Permission::create([
-                'name'                => $permission['name'],
+                'name' => $permission['name'],
                 'permission_group_id' => $group->id
             ]);
+            // assign permission ke role sesuai config permissions
             foreach ($permission['roles'] as $role) {
+                // jika role ada di database, assign permission ke role
                 if (in_array($role, $rolesArray))
+                    // assign permission ke role, $perm adalah data dari model Permission
                     $perm->assignRole($role);
             }
         }
@@ -65,7 +69,7 @@ class RolePermissionSeeder extends Seeder
                         'group_name' => $permission['group']
                     ]);
                     $perm = Permission::create([
-                        'name'                => $permission['name'],
+                        'name' => $permission['name'],
                         'permission_group_id' => $group->id
                     ]);
                     foreach ($permission['roles'] as $role)
