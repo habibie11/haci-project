@@ -16,7 +16,7 @@ class PartnerController extends StislaController
     {
         parent::__construct();
         $this->partnerRepository = new PartnerRepository();
-        $this->defaultMiddleware('Pengguna');
+        $this->middleware('can:Halaman Depan');
 
         $this->icon = 'fa fa-handshake-o';
         $this->viewFolder = 'partners';
@@ -41,7 +41,6 @@ class PartnerController extends StislaController
     public function ajax()
     {
         $defaultData = $this->getDefaultDataIndex(__('Partner'), 'Menu', 'partners');
-        // dd($defaultData);
         return $this->partnerRepository->getYajraDataTables($defaultData);
     }
 

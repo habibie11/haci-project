@@ -47,6 +47,13 @@ return [
                             'permission' => 'Halaman Depan',
                             'is_active_if_url_includes' => 'settings/partners*'
                         ],
+                        [
+                            'menu_name' => 'Pesan Layanan',
+                            'route_name' => 'messagers.index',
+                            'icon' => 'fa fa-message',
+                            'permission' => 'Pesan Layanan',
+                            'is_active_if_url_includes' => 'messagers*'
+                        ],
                     ]
                 ],
             ]
@@ -451,6 +458,11 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
             'name' => 'Partners',
             'roles' => ['superadmin'],
             'group' => 'Halaman Depan'
+        ],
+        [
+            'name' => 'Pesan Layanan',
+            'roles' => ['superadmin'],
+            'group' => 'Pesan Layanan'
         ],
     ],
 

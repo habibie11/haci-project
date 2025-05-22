@@ -280,7 +280,7 @@ class SettingRepository
             }
         }
         if (is_null($logo)) {
-            return asset('images/logo.png');
+            return asset('images/just_logo.png');
         }
     }
 
