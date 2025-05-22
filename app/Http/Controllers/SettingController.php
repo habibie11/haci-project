@@ -37,8 +37,8 @@ class SettingController extends Controller
         $this->settingRepository = new SettingRepository;
         $this->fileService = new FileService;
 
-        $this->middleware('can:Pengaturan')->only(['index', 'allSetting', 'update']);
-        $this->middleware('can:Halaman Depan')->only(['homeSetting']);
+        $this->middleware('can:Pengaturan')->only(['index', 'allSetting']);
+        $this->middleware('can:Halaman Depan')->only(['homeSetting', 'update']);
     }
 
     /**

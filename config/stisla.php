@@ -4,7 +4,7 @@ return [
     'menus' => [
         [
             'group_name' => 'Navigasi',
-            'menus' => [
+            'menus' => [ // menus or modules
                 [
                     'menu_name' => 'Beranda',
                     'route_name' => 'dashboard.index',
@@ -23,29 +23,29 @@ return [
                             'menu_name' => 'Informasi Perusahaan',
                             'route_name' => 'settings.home',
                             'icon' => 'fa fa-info',
-                            'permission' => 'Halaman Depan',
+                            'permission' => 'Halaman Depan', // permission prefix
                             'is_active_if_url_includes' => 'settings/home*'
                         ],
                         [
                             'menu_name' => 'Izin Perusahaan',
                             'route_name' => 'izin-perusahaan.index',
                             'icon' => 'fa fa-building',
-                            'permission' => 'Halaman Depan',
-                            'is_active_if_url_includes' => 'settings/izin-perusahaan*'
+                            'permission' => 'Izin Perusahaan',
+                            'is_active_if_url_includes' => 'izin-perusahaan*'
                         ],
                         [
                             'menu_name' => 'Pricing',
                             'route_name' => 'pricings.index',
                             'icon' => 'fa fa-window-restore',
-                            'permission' => 'Halaman Depan',
-                            'is_active_if_url_includes' => 'settings/pricings*'
+                            'permission' => 'Pricing',
+                            'is_active_if_url_includes' => 'pricings*'
                         ],
                         [
                             'menu_name' => 'Partners',
                             'route_name' => 'partners.index',
                             'icon' => 'fa fa-handshake-o',
-                            'permission' => 'Halaman Depan',
-                            'is_active_if_url_includes' => 'settings/partners*'
+                            'permission' => 'Partners',
+                            'is_active_if_url_includes' => 'partners*'
                         ],
                         [
                             'menu_name' => 'Pesan Layanan',
@@ -172,7 +172,7 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
         'weekend' => 'Sabtu - Minggu',
         'open_hour' => '08:00 - 17:00',
         'open_hour_weekend' => '08:00 - 12:00',
-        'logo_website' => 'images/logo_website.png',
+        'logo_website' => '/assets/images/just_logo.png',
         'special_offer_image' => '/home/img/family.png',
         'popup_image' => '/home/img/family.png',
         'branch_image' => '/home/img/branch.png'
@@ -447,20 +447,80 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
         [
             'name' => 'Izin Perusahaan',
             'roles' => ['superadmin'],
-            'group' => 'Halaman Depan'
+            'group' => 'Izin Perusahaan'
+        ],
+        [
+            'name' => 'Izin Perusahaan Tambah',
+            'roles' => ['superadmin'],
+            'group' => 'Izin Perusahaan'
+        ],
+        [
+            'name' => 'Izin Perusahaan Ubah',
+            'roles' => ['superadmin'],
+            'group' => 'Izin Perusahaan'
+        ],
+        [
+            'name' => 'Izin Perusahaan Hapus',
+            'roles' => ['superadmin'],
+            'group' => 'Izin Perusahaan'
         ],
         [
             'name' => 'Pricing',
             'roles' => ['superadmin'],
-            'group' => 'Halaman Depan'
+            'group' => 'Pricing'
+        ],
+        [
+            'name' => 'Pricing Tambah',
+            'roles' => ['superadmin'],
+            'group' => 'Pricing'
+        ],
+        [
+            'name' => 'Pricing Ubah',
+            'roles' => ['superadmin'],
+            'group' => 'Pricing'
+        ],
+        [
+            'name' => 'Pricing Hapus',
+            'roles' => ['superadmin'],
+            'group' => 'Pricing'
         ],
         [
             'name' => 'Partners',
             'roles' => ['superadmin'],
-            'group' => 'Halaman Depan'
+            'group' => 'Partners'
+        ],
+        [
+            'name' => 'Partners Tambah',
+            'roles' => ['superadmin'],
+            'group' => 'Partners'
+        ],
+        [
+            'name' => 'Partners Ubah',
+            'roles' => ['superadmin'],
+            'group' => 'Partners'
+        ],
+        [
+            'name' => 'Partners Hapus',
+            'roles' => ['superadmin'],
+            'group' => 'Partners'
         ],
         [
             'name' => 'Pesan Layanan',
+            'roles' => ['superadmin'],
+            'group' => 'Pesan Layanan'
+        ],
+        [
+            'name' => 'Pesan Layanan',
+            'roles' => ['superadmin'],
+            'group' => 'Pesan Layanan'
+        ],
+        [
+            'name' => 'Pesan Layanan Ubah',
+            'roles' => ['superadmin'],
+            'group' => 'Pesan Layanan'
+        ],
+        [
+            'name' => 'Pesan Layanan Hapus',
             'roles' => ['superadmin'],
             'group' => 'Pesan Layanan'
         ],

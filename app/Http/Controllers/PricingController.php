@@ -24,7 +24,7 @@ class PricingController extends StislaController
 
     protected function getIndexData()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Pricing'), 'Menu', 'pricings');
+        $defaultData = $this->getDefaultDataIndex(__('Pricing'), 'Pricing', 'pricings');
         return array_merge($defaultData, [
             'data' => collect([]),
             'isAjaxYajra' => true,
@@ -50,7 +50,7 @@ class PricingController extends StislaController
 
     public function ajax()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Pricing'), 'Menu', 'pricings');
+        $defaultData = $this->getDefaultDataIndex(__('Pricing'), 'Pricing', 'pricings');
         // dd($defaultData);
         return $this->pricingRepository->getYajraDataTables($defaultData);
     }

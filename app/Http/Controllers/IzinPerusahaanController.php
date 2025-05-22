@@ -25,8 +25,7 @@ class IzinPerusahaanController extends StislaController
 
     protected function getIndexData()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Izin Perusahaan'), 'Halaman Depan', 'izin-perusahaan');
-        // dd($defaultData);
+        $defaultData = $this->getDefaultDataIndex(__('Izin Perusahaan'), 'Izin Perusahaan', 'izin-perusahaan');
 
         return array_merge($defaultData, [
             'data' => collect([]),

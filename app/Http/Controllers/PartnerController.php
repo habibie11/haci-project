@@ -16,7 +16,7 @@ class PartnerController extends StislaController
     {
         parent::__construct();
         $this->partnerRepository = new PartnerRepository();
-        $this->middleware('can:Halaman Depan');
+        $this->middleware('can:Partners');
 
         $this->icon = 'fa fa-handshake-o';
         $this->viewFolder = 'partners';
@@ -24,7 +24,7 @@ class PartnerController extends StislaController
 
     protected function getIndexData()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Partner'), 'Menu', 'partners');
+        $defaultData = $this->getDefaultDataIndex(__('Partner'), 'Partners', 'partners');
         return array_merge($defaultData, [
             'data' => collect([]),
             'isAjaxYajra' => true,
@@ -40,7 +40,7 @@ class PartnerController extends StislaController
 
     public function ajax()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Partner'), 'Menu', 'partners');
+        $defaultData = $this->getDefaultDataIndex(__('Partner'), 'Partners', 'partners');
         return $this->partnerRepository->getYajraDataTables($defaultData);
     }
 

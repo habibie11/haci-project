@@ -4,11 +4,11 @@ $isAjax = $isAjax ?? false;
 $isYajra = $isYajra ?? false;
 $isAjaxYajra = $isAjaxYajra ?? false;
 // dd([
-//   '$canUpdate' => $canUpdate,
-//   '$canDelete' => $canDelete,
-//   '$canForceLogin' => $canForceLogin,
-//   '$item' => isset($item) ? $item : null,
-//   'auth_id' => auth()->id(),
+// '$canUpdate' => $canUpdate,
+// '$canDelete' => $canDelete,
+// '$canForceLogin' => $canForceLogin,
+// '$item' => isset($item) ? $item : null,
+// 'auth_id' => auth()->id(),
 // ]);
 @endphp
 
@@ -23,9 +23,9 @@ $isAjaxYajra = $isAjaxYajra ?? false;
       <th>{{ __('No Izin') }}</th>
       <th>{{ __('Created At') }}</th>
       <th>{{ __('Updated At') }}</th>
-      {{-- @if (($canUpdate || $canDelete || ($canForceLogin && $item->id != auth()->id())) && $isExport === false) --}}
+      @if (($canUpdate || $canDelete || ($canForceLogin && $item->id != auth()->id())) && $isExport === false)
       <th>{{ __('Aksi') }}</th>
-      {{-- @endif --}}
+      @endif
     </tr>
   </thead>
   <tbody>

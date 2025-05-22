@@ -95,7 +95,7 @@
                     @include('stisla.includes.forms.inputs.input', [
                     'id' => 'full_address',
                     'label' => __('Alamat Lengkap'),
-                    'value' => $dataSetting->full_address ?? '',
+                    'value' => $dataSetting->full_adress ?? '',
                     'required' => true,
                     ])
                 </div>
@@ -243,7 +243,7 @@
         <div class="row">
             <div class="col-md-4 col-lg-3">
                 <a href="{{ $dataSetting->logo_website }}" target="_blank">
-                    <img class="img-thumbnail" src="{{ $dataSetting->logo_website }}" alt="Logo Website">
+                    <img class="img-thumbnail" src="/{{ $dataSetting->logo_website }}" alt="Logo Website">
                 </a>
                 <div class="text-center font-bold"><strong>Logo Website</strong></div>
             </div>
