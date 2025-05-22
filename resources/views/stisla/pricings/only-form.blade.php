@@ -28,14 +28,6 @@
     ])
   </div>
   <div class="col-md-6">
-    {{-- @include('stisla.includes.forms.inputs.input', [
-    'id' => 'benefit',
-    'name' => 'benefit',
-    'label' => __('Benefit'),
-    'type' => 'text',
-    'required' => true,
-    'icon' => 'fas fa-check',
-    ]) --}}
     @include('stisla.includes.forms.editors.textarea', [
     'id' => 'benefit',
     'name' => 'benefit',
@@ -43,6 +35,7 @@
     'required' => true,
     'icon' => 'fas fa-check',
     'height' => '4rem',
+    'hint' => 'Pisahkan dengan tanda , (koma)'
     ])
   </div>
   <div class="col-md-6">
