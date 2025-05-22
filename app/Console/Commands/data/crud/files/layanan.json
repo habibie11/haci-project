@@ -1,1 +1,0 @@
-{"title":"layanan","icon":"users","model":"Layanan","columns":[{"type":"ai"},{"name":"nama","type":"varchar","length":"100","label":"Nama Produk","form":{"type":"inputtext","required":2},"validations":{"store":["required"],"update":["required"]},"nullable":true,"unique":false,"foreign":null},{"type":"timestamps"}]}
