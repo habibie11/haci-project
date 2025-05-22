@@ -189,29 +189,6 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
             'roles' => ['superadmin', 'admin'],
             'group' => 'Profil'
         ],
-
-        [
-            'name' => 'Log Aktivitas',
-            'roles' => ['superadmin', 'admin'],
-            'group' => 'Log Aktivitas'
-        ],
-        [
-            'name' => 'Log Aktivitas Ekspor',
-            'roles' => ['superadmin', 'admin'],
-            'group' => 'Log Aktivitas'
-        ],
-
-        [
-            'name' => 'Log Request',
-            'roles' => ['superadmin', 'admin'],
-            'group' => 'Log Request'
-        ],
-        [
-            'name' => 'Log Request Ekspor',
-            'roles' => ['superadmin', 'admin'],
-            'group' => 'Log Request'
-        ],
-
         [
             'name' => 'Role',
             'roles' => ['superadmin'],

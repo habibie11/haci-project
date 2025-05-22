@@ -24,7 +24,7 @@ class MessagerController extends StislaController
 
     protected function getIndexData()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Messager'), 'Pesan Layanan', 'messagers');
+        $defaultData = $this->getDefaultDataIndex(__('Messager'), 'Menu', 'messagers');
         return array_merge($defaultData, [
             'data' => collect([]),
             'isAjaxYajra' => true,
@@ -40,7 +40,7 @@ class MessagerController extends StislaController
 
     public function ajax()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Messager'), 'Pesan Layanan', 'messagers');
+        $defaultData = $this->getDefaultDataIndex(__('Messager'), 'Menu', 'messagers');
         return $this->messagerRepository->getYajraDataTables($defaultData);
     }
 
