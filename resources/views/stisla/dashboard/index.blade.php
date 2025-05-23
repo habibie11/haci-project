@@ -52,6 +52,7 @@ Dashboard
   </div>
   @endforeach
 
+  @can('Chart Visitor')
   <div class="col-lg-12 col-md-6 col-lg-6">
     <div class="card">
       <div class="card-header">
@@ -62,6 +63,7 @@ Dashboard
       </div>
     </div>
   </div>
+  @endcan
 
   {{-- sementara --}}
   {{-- @if ($user->can('Log Aktivitas'))

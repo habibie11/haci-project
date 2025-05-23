@@ -487,11 +487,6 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
             'group' => 'Pesan Layanan'
         ],
         [
-            'name' => 'Pesan Layanan',
-            'roles' => ['superadmin'],
-            'group' => 'Pesan Layanan'
-        ],
-        [
             'name' => 'Pesan Layanan Ubah',
             'roles' => ['superadmin'],
             'group' => 'Pesan Layanan'
@@ -500,6 +495,11 @@ Dalam menjalankan kegiatan usahanya kami juga mengantongi izin serta lisensi seb
             'name' => 'Pesan Layanan Hapus',
             'roles' => ['superadmin'],
             'group' => 'Pesan Layanan'
+        ],
+        [
+            'name' => 'Chart Visitor',
+            'roles' => ['superadmin', 'admin'],
+            'group' => 'Chart Visitor'
         ],
     ],
 
