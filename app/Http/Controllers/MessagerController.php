@@ -16,7 +16,7 @@ class MessagerController extends StislaController
     {
         parent::__construct();
         $this->messagerRepository = new MessagerRepository();
-        $this->defaultMiddleware('Pengguna');
+        // $this->defaultMiddleware('Pengguna');
 
         $this->icon = 'fa fa-message';
         $this->viewFolder = 'messagers';

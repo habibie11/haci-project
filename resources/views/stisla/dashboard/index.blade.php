@@ -52,69 +52,7 @@ Dashboard
   </div>
   @endforeach
 
-  <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-    <div class="card card-statistic-1" onclick="openTo('http://127.0.0.1:8000/crud-examples')" style="cursor: pointer;">
-      <div class="card-icon bg-primary">
-        <i class="fas fa-user-friends"></i>
-      </div>
-      <div class="card-wrap">
-        <div class="card-header">
-          <h4>Pelanggan</h4>
-        </div>
-        <div class="card-body">
-          26
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-    <div class="card card-statistic-1" onclick="openTo('http://127.0.0.1:8000/user-management/users')"
-      style="cursor: pointer;">
-      <div class="card-icon bg-danger">
-        <i class="fas fa-users"></i>
-      </div>
-      <div class="card-wrap">
-        <div class="card-header">
-          <h4>Pengguna</h4>
-        </div>
-        <div class="card-body">
-          4
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-    <div class="card card-statistic-1" onclick="openTo('http://127.0.0.1:8000/user-management/roles')"
-      style="cursor: pointer;">
-      <div class="card-icon bg-success">
-        <i class="fas fa-lock"></i>
-      </div>
-      <div class="card-wrap">
-        <div class="card-header">
-          <h4>Role</h4>
-        </div>
-        <div class="card-body">
-          3
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-    <div class="card card-statistic-1" onclick="openTo('http://127.0.0.1:8000/notifications')" style="cursor: pointer;">
-      <div class="card-icon" style="background-color: navy;">
-        <i class="fas fa-bell"></i>
-      </div>
-      <div class="card-wrap">
-        <div class="card-header">
-          <h4>Notifikasi</h4>
-        </div>
-        <div class="card-body">
-          20
-        </div>
-      </div>
-    </div>
-  </div>
-
+  @can('Chart Visitor')
   <div class="col-lg-12 col-md-6 col-lg-6">
     <div class="card">
       <div class="card-header">
@@ -125,6 +63,7 @@ Dashboard
       </div>
     </div>
   </div>
+  @endcan
 
   {{-- sementara --}}
   {{-- @if ($user->can('Log Aktivitas'))
@@ -195,10 +134,10 @@ Dashboard
         const visitorChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["2025-04-13","2025-05-14","2025-05-15", "2025-05-16"],
+                labels: @json($labels),
                 datasets: [{
                     label: 'Total Kunjungan',
-                    data: [100,170,205,500],
+                    data: @json($values),
                     borderWidth: 2,
                     backgroundColor: '#6777ef',
                     borderColor: '#6777ef',

@@ -50,11 +50,11 @@ Route::put('profile/password', [ProfileController::class, 'updatePassword'])->na
 Route::put('profile/email', [ProfileController::class, 'updateEmail'])->name('profile.update-email');
 
 # EXAMPLE STISLA
-Route::view('datatable', 'stisla.examples.datatable.index')->name('datatable.index');
-Route::view('form', 'stisla.examples.form.index')->name('form.index');
-Route::view('chart-js', 'stisla.examples.chart-js.index')->name('chart-js.index');
-Route::view('pricing', 'stisla.examples.pricing.index')->name('pricing.index');
-Route::view('invoice', 'stisla.examples.invoice.index')->name('invoice.index');
+// Route::view('datatable', 'stisla.examples.datatable.index')->name('datatable.index');
+// Route::view('form', 'stisla.examples.form.index')->name('form.index');
+// Route::view('chart-js', 'stisla.examples.chart-js.index')->name('chart-js.index');
+// Route::view('pricing', 'stisla.examples.pricing.index')->name('pricing.index');
+// Route::view('invoice', 'stisla.examples.invoice.index')->name('invoice.index');
 
 # USER MANAGEMENT
 Route::prefix('user-management')->as('user-management.')->group(function () {

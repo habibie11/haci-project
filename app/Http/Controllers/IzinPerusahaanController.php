@@ -17,19 +17,17 @@ class IzinPerusahaanController extends StislaController
     {
         parent::__construct();
         $this->izinPerusahaanRepository = new IzinPerusahaanRepository;
-        $this->defaultMiddleware('Pengguna');
-
+        // $this->defaultMiddleware('Pengguna');
+        $this->middleware('can:Halaman Depan');
         $this->icon = 'fa fa-handshake-o';
         $this->viewFolder = 'izin-perusahaan';
     }
 
     protected function getIndexData()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Izin Perusahaan'), 'Menu', 'izin-perusahaan');
-        // $data        = array_merge(['data' => $data], $defaultData);
+        $defaultData = $this->getDefaultDataIndex(__('Izin Perusahaan'), 'Izin Perusahaan', 'izin-perusahaan');
+
         return array_merge($defaultData, [
-            // 'isYajra' => $isYajra,
-            // 'isAjax' => $isAjax,
             'data' => collect([]),
             'isAjaxYajra' => true,
             'yajraColumns' => $this->izinPerusahaanRepository->getYajraColumns(),
@@ -38,39 +36,6 @@ class IzinPerusahaanController extends StislaController
 
     public function index()
     {
-        $test = [
-            [
-                'menu_name' => 'Halaman Depan',
-                'route_name' => 'settings.home',
-                'icon' => 'fa fa-home',
-                'permission' => 'Settings',
-                'is_active_if_url_includes' => 'settings*',
-                'childs' => [
-                    [
-                        'menu_name' => 'Informasi Perusahaan',
-                        'route_name' => 'settings.home',
-                        'icon' => 'fa fa-info',
-                        'permission' => 'Settings',
-                        'is_active_if_url_includes' => 'settings/home*'
-                    ],
-                    [
-                        'menu_name' => 'Izin Perusahaan',
-                        'route_name' => 'izin-perusahaan.index',
-                        'icon' => 'fa fa-building',
-                        'permission' => 'Settings',
-                        'is_active_if_url_includes' => 'settings/home*'
-                    ],
-                    [
-                        'menu_name' => 'Pricing',
-                        'route_name' => 'pricing.index',
-                        'icon' => 'fa fa-window-restore',
-                        'permission' => 'Settings',
-                        'is_active_if_url_includes' => 'settings/home*'
-                    ],
-                ]
-            ]
-        ];
-        // insertMenu($test);
         $data = $this->getIndexData();
         return view('stisla.izin-perusahaan.index', $data);
     }

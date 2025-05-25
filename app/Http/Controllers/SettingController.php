@@ -37,7 +37,8 @@ class SettingController extends Controller
         $this->settingRepository = new SettingRepository;
         $this->fileService = new FileService;
 
-        $this->middleware('can:Pengaturan');
+        $this->middleware('can:Pengaturan')->only(['index', 'allSetting']);
+        $this->middleware('can:Halaman Depan')->only(['homeSetting', 'update']);
     }
 
     /**
@@ -48,7 +49,6 @@ class SettingController extends Controller
      */
     public function index($type)
     {
-        // dd($type);
         if ($type == 'all') {
             return $this->allSetting();
         }
@@ -68,7 +68,6 @@ class SettingController extends Controller
             } else if ($type == 'home') {
                 $fullTitle = __('Halaman Depan');
                 $dataSetting = $this->settingRepository->homepageSetting();
-                dd($dataSetting);
             }
             return view('stisla.settings.index', [
                 'skins' => $skins,

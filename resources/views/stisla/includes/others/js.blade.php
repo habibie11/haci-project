@@ -71,5 +71,5 @@
 @stack('scripts')
 
 @if (config('app.env') == 'local' && env('LIVERELOAD'))
-<script src="http://localhost:35729/livereload.js"></script>
+<script src="http://127.0.0.1:8000/livereload.js"></script>
 @endif

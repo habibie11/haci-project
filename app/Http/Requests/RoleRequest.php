@@ -25,7 +25,8 @@ class RoleRequest extends FormRequest
     {
         if ($this->isMethod('put'))
             return [
-                'name' => 'required|unique:roles,name,' . $this->id . ',id'
+                // 'name' => 'required|unique:roles,name,' . $this->id . ',id'
+                'name' => 'required|unique:roles,name,' . $this->role->id ?? $this->role,
             ];
         return [
             'name' => 'required|unique:roles,name'

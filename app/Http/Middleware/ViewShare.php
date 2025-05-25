@@ -39,7 +39,7 @@ class ViewShare
     {
         if ($request->isMethod('GET')) {
             // default value
-            view()->share('_logo_url', asset('assets/images/logo.png'));
+            view()->share('_logo_url', asset('assets/images/just_logo.png'));
             view()->share('_company_name', "Nama Perusahaan");
             view()->share('_is_forgot_password_send_to_email', false);
             view()->share('_is_login_must_verified', false);

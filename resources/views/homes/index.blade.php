@@ -74,7 +74,7 @@
         <div class="service-item position-relative text-center rounded shadow-lg"
           style="min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px;">
           <div class="icon" style="margin-bottom: 20px;">
-            <img src="{{ $item->logo ?? asset('assets/images/just_logo.png') }}" alt=""
+            <img src="{{ $item->logo ?? DEFAULT_LOGO }}" alt=""
               style="width: 120px; height: 120px; object-fit: contain;">
           </div>
           <h4 style="margin-bottom: 15px;">{{ $item->nama }}</h4>
@@ -103,6 +103,7 @@
 
       <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
         <div class="content">
+          @if ($specialOffer)
           <h3>PENAWARAN SPESIAL !</h3>
           <h2>{{ $dataSetting->title_special_offer }}</h2>
           <p>
@@ -117,6 +118,9 @@
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
+          @else
+          <h4>Belum ada penawaran special</h4>
+          @endif
         </div>
       </div>
 
@@ -211,7 +215,7 @@
         <div class="col-lg-4 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
           <div class="pricing-item text-center">
             <img class="rounded mx-auto d-block" width="80" height="80"
-              src="{{ $produk->logo ?? asset('assets/images/just_logo.png') }}" alt="">
+              src="{{ $produk->logo ?? DEFAULT_LOGO }}" alt="">
             <h3 class="mt-3">{{ $produk->nama }}</h3>
             <h4><sup>Rp</sup>{{ $produk->harga }}<span> / bulan</span></h4>
             <p>Kecepatan Internet : {{ $produk->kecepatan }}</p>
@@ -324,7 +328,7 @@
             <div class="info-item w-100" data-aos="fade" data-aos-delay="200">
               <i class="bi bi-geo-alt"></i>
               <h3>Alamat</h3>
-              <p>{{ $dataSetting->full_address }}</p>
+              <p>{{ $dataSetting->full_adress }}</p>
             </div>
           </div><!-- End Info Item -->
 

@@ -6,5 +6,5 @@ $isAjaxYajra = $isAjaxYajra ?? false;
 @extends('stisla.layouts.app-datatable')
 
 @section('table')
-@include('stisla.partners.table')
+@include('stisla.messagers.table')
 @endsection

@@ -12,7 +12,8 @@
             <a href="/" class="logo d-flex align-items-center me-auto">
                 <!-- <img src="assets/img/logo.png" alt=""> -->
                 @if(!empty($dataSetting->logo_website))
-                <img src="{{ $dataSetting->logo_website }}" alt="Logo">
+                {{-- @dd($dataSetting->logo_website) --}}
+                <img src="{{ $dataSetting->logo_website ?? asset('assets/images/logo.png') }}" alt="Logo">
                 @else
                 <h1 class="sitename">{{ $appName }}</h1>
                 @endif

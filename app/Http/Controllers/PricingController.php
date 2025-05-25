@@ -16,7 +16,7 @@ class PricingController extends StislaController
     {
         parent::__construct();
         $this->pricingRepository = new PricingRepository();
-        $this->defaultMiddleware('Pengguna');
+        $this->middleware('can:Halaman Depan');
 
         $this->icon = 'fa fa-handshake-o';
         $this->viewFolder = 'pricings';
@@ -24,11 +24,8 @@ class PricingController extends StislaController
 
     protected function getIndexData()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Pricing'), 'Menu', 'pricings');
-        // $data        = array_merge(['data' => $data], $defaultData);
+        $defaultData = $this->getDefaultDataIndex(__('Pricing'), 'Pricing', 'pricings');
         return array_merge($defaultData, [
-            // 'isYajra' => $isYajra,
-            // 'isAjax' => $isAjax,
             'data' => collect([]),
             'isAjaxYajra' => true,
             'yajraColumns' => $this->pricingRepository->getYajraColumns(),
@@ -53,7 +50,7 @@ class PricingController extends StislaController
 
     public function ajax()
     {
-        $defaultData = $this->getDefaultDataIndex(__('Pricing'), 'Menu', 'pricings');
+        $defaultData = $this->getDefaultDataIndex(__('Pricing'), 'Pricing', 'pricings');
         // dd($defaultData);
         return $this->pricingRepository->getYajraDataTables($defaultData);
     }

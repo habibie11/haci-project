@@ -6,10 +6,10 @@ use App\Repositories\IzinPerusahaanRepository;
 use App\Repositories\PartnerRepository;
 use App\Repositories\PricingRepository;
 use App\Repositories\SettingRepository;
-use App\Models\Messager;
 use App\Repositories\MessagerRepository;
-use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Repositories\NotificationRepository;
 
 class HomeController extends StislaController
 {
@@ -17,6 +17,7 @@ class HomeController extends StislaController
     private PricingRepository $pricingRepository;
     private PartnerRepository $partnerRepository;
     private MessagerRepository $messagerRepository;
+    private NotificationRepository $NotificationRepository;
 
     /**
      * constructor method
@@ -29,12 +30,12 @@ class HomeController extends StislaController
         $this->pricingRepository = new PricingRepository();
         $this->partnerRepository = new PartnerRepository();
         $this->messagerRepository = new MessagerRepository();
+        $this->NotificationRepository = new NotificationRepository;
         parent::__construct();
     }
 
     public function index()
     {
-        // dd($this->settingRepository->all());
         $dataSetting = $this->settingRepository->homepageSetting();
         $companyName = $this->settingRepository->companyName();
         $since = $this->settingRepository->since();
@@ -75,12 +76,33 @@ class HomeController extends StislaController
     {
         $messager = $this->messagerRepository->create($this->getStoreData($request));
         $successMessage = successMessageCreate('Messager');
-        if ($request->ajax()) {
-            return response()->json([
-                'success' => true,
-                'message' => $successMessage,
-            ]);
+
+        $title = 'Pesan Layanan Baru';
+        $content = 'Ada pesan layanan baru dari ' . $messager->nama . ' - ' . $messager->no_wa;
+        $notificationType = 'pesan-layanan';
+        $icon = 'bell'; // font awesome
+        $bgColor = 'primary'; // primary, danger, success, warning
+
+        // Ambil semua user dengan role superadmin dan admin
+        $users = User::whereHas('roles', function ($q) {
+            $q->whereIn('name', ['superadmin', 'admin']);
+        })->get();
+
+        foreach ($users as $user) {
+            $this->NotificationRepository->createNotif(
+                $title,
+                $content,
+                $user->id,
+                $notificationType,
+                $icon,
+                $bgColor
+            );
         }
+
+        return response()->json([
+            'success' => true,
+            'message' => $successMessage,
+        ]);
     }
 
     private function getStoreData(Request $request): array

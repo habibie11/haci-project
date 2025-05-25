@@ -3,6 +3,13 @@ $isExport = $isExport ?? false;
 $isAjax = $isAjax ?? false;
 $isYajra = $isYajra ?? false;
 $isAjaxYajra = $isAjaxYajra ?? false;
+// dd([
+// '$canUpdate' => $canUpdate,
+// '$canDelete' => $canDelete,
+// '$canForceLogin' => $canForceLogin,
+// '$item' => isset($item) ? $item : null,
+// 'auth_id' => auth()->id(),
+// ]);
 @endphp
 
 <table class="table table-striped @if ($isYajra || $isAjaxYajra) yajra-datatable @endif" @if ($isYajra || $isAjaxYajra)
