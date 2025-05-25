@@ -1,108 +1,64 @@
-# Laravel 11 Template With Stisla
+# HACI Project
 
-[![N|Solid](https://res.cloudinary.com/sistem-informasi/image/upload/c_scale,w_100/v1677141031/logo_srs66z.png)](https://anamapp.my.id)
+HACI Project adalah aplikasi berbasis web yang dirancang untuk memudahkan manajemen data dan proses bisnis sesuai kebutuhan Anda.
 
-Free Starter Laravel 11 Template menggunakan [stisla admin dashboard ](https://github.com/stisla/stisla)
+## Fitur Utama
 
-Beberapa fitur atau komponen yang ada
-[![N|Solid](https://res.cloudinary.com/sistem-informasi/image/upload/v1722952895/moueazjjry5c5qyy1a1m.png)](https://anamapp.my.id)
+- Manajemen data website company profile
+- Antarmuka pengguna yang intuitif
+- Dukungan multi-user
 
-## Fitur dan komponen
+## Cara Instalasi
 
--   Login social media (github, facebook, google, dan twitter) menggunakan library [socialite](https://laravel.com/docs/11.x/socialite)
--   Google captcha
--   Dashboard (widget, log aktivitas terbaru)
--   Profil
-    -   Perbarui profil
-    -   Perbarui email
-    -   Perbarui password
--   Contoh Modul CRUD (Create, Read, Update, Delete) dan Import Excel serta Export (PDF, JSON, Excel)
-    -   CRUD
-    -   Export
-    -   Import
-    -   Server side data table
-    -   Ajax Method
--   Beberapa contoh menu (tampilan)
--   Log
-    -   Log Aktivitas
-    -   Laravel Log Viewer
--   User dan role
-    -   Manjemen Role dan permission menggunakan [spatie](https://spatie.be/docs/laravel-permission/v6/introduction)
-        -   CRUD
-        -   Export
-        -   Import
-    -   Manajemen user
-        -   CRUD
-        -   Export
-        -   Import
-        -   Force Login
-    -   Manajemen Group Permission
-        -   CRUD
-        -   Export
-        -   Import
-    -   Manajemen Permission
-        -   CRUD
-        -   Export
-        -   Import
--   Notifikasi
--   Ubuntu
--   Manajemen file menggunakan [Unisharp](https://unisharp.github.io/laravel-filemanager/)
--   Pengaturan
-    -   Umum
-    -   Meta
-    -   Tampilan
-    -   Email
-    -   SSO Login dan Register
-    -   Lainnya
-        -   Google captcha
-        -   Setting page
--   Backup database
--   Dropbox
--   Manajemen Menu
-    -   Menu (CRUD)
-    -   Grup Menu (CRUD)
--   CRUD Generator (menu nya tersembunyi akses via url saja)
--   Server side export file
--   Service dan repository pattern
--   Log Request
+## Persyaratan Sistem
 
-## How to install and run
+Pastikan Anda telah menginstall:
+- PHP >= 8.4
+- Composer
+- MySQL/MariaDB (atau database lain yang didukung Laravel)
+- Git (opsional, jika ingin clone repository)
 
--   `composer install`
--   setup your DB in `.env`
--   `php artisan jwt:secret`
--   `php artisan migrate --seed`
--   `php artisan storage:link`
--   [optional] setup google captcha, google login, facebook login, github login, twitter login in `.env`
+## Langkah Instalasi
 
-## Libraries dan Link Penting
+1. **Unduh source code**
+    - **Clone repository (opsional):**
+        ```bash
+        git clone https://github.com/username/haci-project.git
+        cd haci-project
+        ```
+    - **Atau download ZIP:**
+        1. Kunjungi [https://github.com/username/haci-project](https://github.com/username/haci-project)
+        2. Klik tombol **Code** lalu pilih **Download ZIP**
+        3. Ekstrak file ZIP dan buka folder `haci-project` di terminal
 
--   https://demo.getstisla.com/
--   https://spatie.be/docs/laravel-permission/v6/introduction
--   https://laravel.com/docs/11.x/socialite
--   https://unisharp.github.io/laravel-filemanager/
--   https://laravel-excel.com/
--   https://github.com/barryvdh/laravel-dompdf
--   https://datatables.net/
--   https://packagist.org/packages/buzz/laravel-google-captcha
--   https://www.google.com/recaptcha/about
--   https://github.com/thinhbuzz/laravel-google-captcha
--   https://github.com/cloudinary-devs/cloudinary-laravel
--   https://github.com/rap2hpoutre/laravel-log-viewer
--   https://github.com/yajra/laravel-datatables
--   https://github.com/tymondesigns/jwt-auth
--   https://github.com/milon/barcode
+2. **Install dependensi**
+    ```bash
+    composer install
+    ```
 
-Terima kasih, bisa distar ataupun difork ya guys. Kalau ada request module atau apapun itu, bisa tulis di issue.
+3. **Salin file environment**
+    ```bash
+    cp .env.example .env
+    ```
 
-#### Yuk Ramaikan channel youtubeku biar semangat ngonten dan belajar barengnya
+4. **Konfigurasi environment**
+    - Edit file `.env` sesuai kebutuhan (database, password dsb).
 
-[![N|Solid](https://res.cloudinary.com/sistem-informasi/image/upload/c_scale,w_120,z_2.7/v1677481731/youtube-logo-hd-8_x1zdwb.png)](https://www.youtube.com/channel/UCwF-njZKFE30pZwWFtp84fA)
+5. **Generate key aplikasi**
+    ```bash
+    php artisan key:generate
+    ```
 
-#### Yang mau intip2 portofolioku bisa klik gambar di bawah
+6. **Migrasi dan seeder database**
+    ```bash
+    php artisan migrate --seed
+    ```
+    > Atau jalankan seeder saja:
+    > ```bash
+    > php artisan db:seed
+    > ```
 
-[![N|Solid](https://res.cloudinary.com/sistem-informasi/image/upload/c_thumb,w_100/v1677481520/1664200200147_it7bza.jpg)](https://anamapp.my.id)
-
-atau kunjungi https://anamapp.my.id
-
-https://github.com/Anamcoollzz/laravel-11-template
+7. **Jalankan aplikasi**
+    ```bash
+    php artisan serve
+    ```
